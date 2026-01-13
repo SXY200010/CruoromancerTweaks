@@ -1,0 +1,108 @@
+[
+  {
+    "Key": "MyFeat.Name",
+    "ProcessTemplates": false,
+    "enGB": "My Feat"
+  },
+
+  {
+    "Key": "MyFeat.Description",
+    "enGB": "This is my feat, not your feat."
+  },
+
+  {
+    "Key": "FocusedInfusion.Name",
+    "enGB": "Focused Infusion(Free)",
+    "zhCN": "聚能灌注（自由）"
+  },
+
+    {
+    "Key": "FocusedInfusionCooldown.Name",
+    "enGB": "Cooling Down",
+    "zhCN": "冷却中……"
+  },
+
+  {
+    "Key": "FocusedInfusion.Description",
+    "enGB": "When the cruoromancer uses this infusion, he adds +1 to the DC of the infused necromancy spell. This ability can be used only once per round. At 5th level, the bonus increases to +2. At 8th level, this infusion becomes a free action.",
+    "zhCN": "融血师以此形式灌注血液之力时，被灌注的死灵法术难度等级+1。此能力每回合只能使用一次。5级时，加值提升至+2；8级时，此灌注改为一个自由动作。"
+  },
+
+  {
+    "Key": "SickeningInfusion.Name",
+    "enGB": "Sickening Infusion(Free)",
+    "zhCN": "恶心灌注（自由）"
+  },
+
+  {
+    "Key": "SickeningInfusionCooldown.Name",
+    "enGB": "Cooling Down",
+    "zhCN": "冷却中……"
+  },
+
+  {
+    "Key": "SickeningInfusion.Description",
+    "enGB": "When the cruoromancer channels blood power in this way, a creature that takes damage from the infused necromancy spell becomes sickened for 1 + half your wizard level rounds. You can use this ability only once per turn. At 8th level, this infusion becomes a free action.",
+    "zhCN": "融血师以此形式灌注血液之力时，受到被灌注的死灵法术伤害的生物陷入恶心状态，持续1 + 你的法师等级的一半的轮数。此能力每回合只能使用一次。8级时，此灌注改为一个自由动作。"
+  },
+
+  {
+    "Key": "BloodInfusionFree.Name",
+    "enGB": "Blood Infusion (Free)",
+    "zhCN": "融血灌注（自由）"
+  },
+
+  {
+    "Key": "AugmentSummoning.Name",
+    "enGB": "Wizard Bonus Feat (Augment Summoning)",
+    "zhCN": "法师额外专长（增强召唤）"
+  },
+
+  {
+    "Key": "AugmentSummoning.Description",
+    "enGB": "At 6th level, the cruoromancer gains a wizard bonus feat, which must be Augment Summoning.",
+    "zhCN": "融血师6级时获得一个法师额外专长，固定为增强召唤。"
+  },
+
+  {
+    "Key": "CommandingInfusion.Description",
+    "enGB": "When using this infusion with animate dead, the summoned undead gain a +4 innate bonus to Strength and Charisma for the spell’s duration. At 15th level, undead summoned in this way gain temporary hit points equal to three times your wizard HD.",
+    "zhCN": "通过在施放操纵亡者时以此形式灌注血液之力，你召唤出的死灵生物将在力量和魅力属性上获得+4天赋加值，直到召唤法术的持续时间结束。15级时，以此方式召唤的死灵生物额外获得数值为三倍你法师HD的临时生命值。"
+  },
+
+  {
+    "Key": "ProfaneInfusion.Name",
+    "enGB": "Profane Infusion",
+    "zhCN": "亵渎灌注"
+  },
+
+  {
+    "Key": "ProfaneInfusion.Description",
+    "enGB": "When the cruoromancer uses this infusion, the infused necromancy spell gains a +2 bonus to its caster level. You can use this ability only once per turn, and activating it is a free action.",
+    "zhCN": "当融血师以此形式灌注血液之力时，被灌注的死灵法术施法者等级获得+2加值。此能力每回合只能使用一次，为自由动作。"
+  },
+
+  {
+    "Key": "PerfectInfusion.Description",
+    "enGB": "At 20th level, a cruoromancer can use his blood infusions without spending hit points. In addition, the bonuses granted by his Focused Infusion and Profane Infusion increase to +4.",
+    "zhCN": "达到20级后，融血师施展融血灌注时不再消耗生命值。此外，其聚能灌注与亵渎灌注所提供的加值提升至+4。"
+  },
+
+  {
+    "Key": "TurnUndeadNecromancy.Description",
+    "enGB": "As a standard action, you can channel positive energy, causing all undead within 30 feet to become frightened and flee as if panicked. Undead can attempt a Will saving throw to resist this effect. The DC of this save is equal to 10 + 1/2 your cleric level + your Charisma modifier. Undead that fail the save flee for 1 minute, and can attempt a new saving throw each round to end the effect early. Additionally, this channeled energy deals 1d4 + 1/2 your wizard level + your Intelligence modifier damage to all hostile undead creatures within the area. When channel energy is used in this way, it produces no other effect (such as healing or harming nearby creatures).",
+    "zhCN": "以一个标准动作，你可以引导正向能量，使30尺内的所有不死生物陷入惊恐状态并四处逃窜。不死生物可以进行意志豁免来抵抗该效果，豁免难度等级为10+1/2你的牧师等级+你的魅力调整值。豁免失败的不死生物将逃窜1分钟，并且每轮都可以进行一次新的豁免以提前结束该效果。此外，此次引导能量还会对区域内所有敌对的死灵生物造成1d4+1/2你的法师等级+你的智力调整值的伤害。若以此方式使用引导能量，它将不会产生任何治疗或其他效果。"
+  },
+
+  {
+    "Key": "UndeadTouch.Name",
+    "enGB": "Undead Touch",
+    "zhCN": "不死之触"
+  },
+
+  {
+    "Key": "UndeadTouch.Description",
+    "enGB": "As a standard action, you can touch an undead creature and infuse it with negative energy. This grants the target a +1 profane bonus on attack rolls and saving throws, plus 1 temporary hit point per caster level. The bonus on attacks and saves increases by 1 for every 5 wizard levels you possess. These bonuses last for a number of rounds equal to half your wizard level (minimum 1 round). You can use this ability a number of times per day equal to 3 + your Intelligence modifier.",
+    "zhCN": "以一个标准动作，你可以碰触一个不死生物并替它注入负能量。使其攻击跟豁免检定的+1亵渎加值，以及每施法者等级1点的临时生命值。在攻击和豁免的加值会在你每5个法师等级增加1点。这些加值持续法师等级一半的轮数（至少1轮）。你每天可以使用这个能力的次数为3+智力调整值。"
+  }
+]

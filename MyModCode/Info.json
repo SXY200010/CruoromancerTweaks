@@ -1,0 +1,11 @@
+{
+  "Id": "CruoromancerTweaks",
+  "DisplayName": "CruoromancerTweaks",
+  "Author": "",
+  "Version": "0.1",
+  "ManagerVersion": "0.21.3",
+  "Requirements": [],
+  "AssemblyName": "CruoromancerTweaks.dll",
+  "EntryMethod": "CruoromancerTweaks.Main.Load"
+}
+
