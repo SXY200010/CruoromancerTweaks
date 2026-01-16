@@ -1,5 +1,6 @@
 D:\MyMod\MyModCode\bin\Debug\net48\Info.json
 D:\MyMod\MyModCode\bin\Debug\net48\LocalizedStrings.json
+D:\MyMod\MyModCode\bin\Debug\net48\cruoromancertweaks_assets
 D:\MyMod\MyModCode\bin\Debug\net48\CruoromancerTweaks.dll
 D:\MyMod\MyModCode\bin\Debug\net48\CruoromancerTweaks.pdb
 D:\MyMod\MyModCode\bin\Debug\net48\AssemblyPublicizer.dll
@@ -26,7 +27,7 @@ D:\MyMod\MyModCode\obj\Debug\net48\CruoromancerTweaks.GeneratedMSBuildEditorConf
 D:\MyMod\MyModCode\obj\Debug\net48\CruoromancerTweaks.AssemblyInfoInputs.cache
 D:\MyMod\MyModCode\obj\Debug\net48\CruoromancerTweaks.AssemblyInfo.cs
 D:\MyMod\MyModCode\obj\Debug\net48\CruoromancerTweaks.csproj.CoreCompileInputs.cache
+D:\MyMod\MyModCode\obj\Debug\net48\CruoromancerTweaks.sourcelink.json
 D:\MyMod\MyModCode\obj\Debug\net48\Cruoroma.C84AA10C.Up2Date
 D:\MyMod\MyModCode\obj\Debug\net48\CruoromancerTweaks.dll
 D:\MyMod\MyModCode\obj\Debug\net48\CruoromancerTweaks.pdb
-D:\MyMod\MyModCode\bin\Debug\net48\cruoromancertweaks_assets

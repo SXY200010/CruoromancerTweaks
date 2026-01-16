@@ -19,9 +19,11 @@ using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
 using Kingmaker.UnitLogic.Abilities.Components.CasterCheckers;
+using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Commands.Base;
+using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
@@ -43,6 +45,7 @@ namespace CruoromancerTweaks.ModifiedContent.Schools
         private const string UndeadTouchResourceGuid = "ABDFA3B5E84549E39D2F6D6C2F0B2D18";
         private const string WizardClassGuid = "ba34257984f4c41408ce1dc2004e342e";
         private const string DeadSightAreaGuid = "A0B966FE43FA4A53BFA291863EC23DB6";
+        private const string DeadSightArea2Guid = "DC6C129F82DC422EA35267AA60089911";
         private const string DeadSightSelfBuffGuid = "CA59AB38FE754DED8175CECFA3790A6E";
         private const string DeadSightUndeadAllyBuffGuid = "EB7D0EF2165249328836A9BEAB2A4573";
         private const string DeadSightLivingEnemyDebuffGuid = "A369500B100B449B977BF994D7BED363";
@@ -50,6 +53,8 @@ namespace CruoromancerTweaks.ModifiedContent.Schools
         private static readonly string TurnUndeadNecromancyDescription = "TurnUndeadNecromancy.Description";
         private static readonly string UndeadTouchName = "UndeadTouch.Name";
         private static readonly string UndeadTouchDescription = "UndeadTouch.Description";
+        private static readonly string DeadSightName = "DeadSight.Name";
+        private static readonly string DeadSightDescription = "DeadSight.Description";
         public static void Configure()
         {
             BlueprintAbility turnUndeadNecromancy = BlueprintTool.Get<BlueprintAbility>(TurnUndeadNecromancyGuid);
@@ -57,8 +62,9 @@ namespace CruoromancerTweaks.ModifiedContent.Schools
             BlueprintFeature necromancySchoolBaseFeature = BlueprintTool.Get<BlueprintFeature>("927707dce06627d4f880c90b5575125f");
             BlueprintAbility necromancySchoolBaseAbility = BlueprintTool.Get<BlueprintAbility>("39af648796b7b9b4ab6321898ebb5fff");
             BlueprintAbilityResource necromancySchoolBaseResource = BlueprintTool.Get<BlueprintAbilityResource>("d3c8231b4ab43d248944b6da83776522");
-            BlueprintAbility necromancySchoolGreaterAbility = BlueprintTool.Get<BlueprintAbility>("23929ea35519488459ed30eea4425a04");
-
+            BlueprintActivatableAbility necromancySchoolGreaterAbility = BlueprintTool.Get<BlueprintActivatableAbility>("23929ea35519488459ed30eea4425a04");
+            BlueprintFeature constructType = BlueprintTool.Get<BlueprintFeature>("fd389783027d63343b4a5634bd81645f");
+            
             AbilityConfigurator.For(turnUndeadNecromancy)
             .SetDescription(TurnUndeadNecromancyDescription) 
             .SetDescriptionShort(TurnUndeadNecromancyDescription)
@@ -138,7 +144,7 @@ namespace CruoromancerTweaks.ModifiedContent.Schools
                 .Configure();
 
             var rankConfig1 = ContextRankConfigs.ClassLevel(new[] { WizardClassGuid })
-                .WithStartPlusDivStepProgression(1, 5);
+                .WithDivStepProgression(5);
             rankConfig1.m_Type = AbilityRankType.StatBonus;
 
             var rankConfig2 = ContextRankConfigs.ClassLevel(new[] { WizardClassGuid });
@@ -163,7 +169,33 @@ namespace CruoromancerTweaks.ModifiedContent.Schools
                         ValueRank = AbilityRankType.StatBonus
                     }
                 )
-                .AddBuffAllSavesBonus(ModifierDescriptor.Profane, 1)
+                .AddContextStatBonus(
+                    stat: Kingmaker.EntitySystem.Stats.StatType.SaveFortitude,
+                    descriptor: ModifierDescriptor.Profane,
+                    value: new ContextValue
+                    {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    }
+                )
+                .AddContextStatBonus(
+                    stat: Kingmaker.EntitySystem.Stats.StatType.SaveReflex,
+                    descriptor: ModifierDescriptor.Profane,
+                    value: new ContextValue
+                    {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    }
+                )
+                .AddContextStatBonus(
+                    stat: Kingmaker.EntitySystem.Stats.StatType.SaveWill,
+                    descriptor: ModifierDescriptor.Profane,
+                    value: new ContextValue
+                    {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    }
+                )
                 .AddTemporaryHitPointsFromAbilityValue(
                     value: new ContextValue
                     {
@@ -179,6 +211,9 @@ namespace CruoromancerTweaks.ModifiedContent.Schools
                 .SetDisplayName(UndeadTouchName)
                 .SetDescription(UndeadTouchDescription)
                 .SetIcon(necromancySchoolBaseAbility.Icon)
+                .SetCanTargetEnemies(false)
+                .SetCanTargetFriends(true)
+                .SetCanTargetSelf(false)
                 .AddContextRankConfig(
                     ContextRankConfigs
                         .ClassLevel(new[] { WizardClassGuid })
@@ -195,19 +230,40 @@ namespace CruoromancerTweaks.ModifiedContent.Schools
                     {
                         Actions = new GameAction[]
                         {
-                            new ContextActionApplyBuff
+                            new Conditional
                             {
-                                m_Buff = undeadTouchBuff.ToReference<BlueprintBuffReference>(),
-                                DurationValue = new ContextDurationValue
+                                ConditionsChecker = new ConditionsChecker
                                 {
-                                    Rate = DurationRate.Rounds,
-                                    DiceType = DiceType.One,
-                                    DiceCountValue = new ContextValue
+                                    Conditions = new Condition[]
                                     {
-                                        ValueType = ContextValueType.Rank
-                                    },
-                                    BonusValue = 0
+                                        new ContextConditionIsAlly(),
+                                        new ContextConditionHasFact
+                                        {
+                                            m_Fact = undeadType.ToReference<BlueprintUnitFactReference>()
+                                        }
+                                    }
                                 },
+                                IfTrue = new ActionList
+                                {
+                                    Actions = new GameAction[]
+                                    {
+                                        new ContextActionApplyBuff
+                                        {
+                                            m_Buff = undeadTouchBuff.ToReference<BlueprintBuffReference>(),
+                                            ToCaster = false,
+                                            DurationValue = new ContextDurationValue
+                                            {
+                                                Rate = DurationRate.Rounds,
+                                                DiceType = DiceType.One,
+                                                DiceCountValue = new ContextValue
+                                                {
+                                                    ValueType = ContextValueType.Rank
+                                                },
+                                                BonusValue = 0
+                                            },
+                                        }
+                                    }
+                                }
                             }
                         }
                     };
@@ -219,10 +275,19 @@ namespace CruoromancerTweaks.ModifiedContent.Schools
                     resource: undeadTouchResource,
                     restoreAmount: true
                  )
+                 .EditComponent<AddFacts>(c =>
+                 {
+                     c.m_Facts = new BlueprintUnitFactReference[]
+                     {
+                         undeadTouch.ToReference<BlueprintUnitFactReference>(),
+                         turnUndeadNecromancy.ToReference<BlueprintUnitFactReference>()
+                     };
+                 })
                 .Configure();
 
             BlueprintBuff undeadAllyBuff =
                 BuffConfigurator.New("DeadSightUndeadAllyBuff", DeadSightUndeadAllyBuffGuid)
+                .SetIcon(necromancySchoolGreaterAbility.Icon)
                 .AddContextStatBonus(
                     stat:Kingmaker.EntitySystem.Stats.StatType.AdditionalAttackBonus,
                     descriptor: ModifierDescriptor.Profane,
@@ -234,28 +299,41 @@ namespace CruoromancerTweaks.ModifiedContent.Schools
                     descriptor: ModifierDescriptor.Profane,
                     value: 1
                 )
-                .AddBuffAllSkillsBonus(ModifierDescriptor.Profane, 1)
+                .AddBuffAbilityRollsBonus(
+                    affectAllStats: true,
+                    descriptor: ModifierDescriptor.Profane,
+                    value: -1
+                )
                 .Configure();
 
             BlueprintBuff livingEnemyDebuff =
                 BuffConfigurator.New("DeadSightLivingEnemyDebuff", DeadSightLivingEnemyDebuffGuid)
-                .AddContextStatBonus(
+                .SetIcon(necromancySchoolGreaterAbility.Icon)
+                .AddStatBonus(
                     stat: Kingmaker.EntitySystem.Stats.StatType.AdditionalAttackBonus,
-                    descriptor: ModifierDescriptor.UntypedStackable,
+                    descriptor: ModifierDescriptor.None,
                     value: -1
                 )
-                .AddBuffAllSavesBonus(ModifierDescriptor.UntypedStackable, -1)
-                .AddContextStatBonus(
+                .AddBuffAllSavesBonus(ModifierDescriptor.None, -1)
+                .AddStatBonus(
                     stat: Kingmaker.EntitySystem.Stats.StatType.AdditionalDamage,
-                    descriptor: ModifierDescriptor.UntypedStackable,
+                    descriptor: ModifierDescriptor.None,
                     value: -1
                 )
-                .AddBuffAllSkillsBonus(ModifierDescriptor.UntypedStackable, 1)
+                .AddBuffAbilityRollsBonus(
+                    affectAllStats: true,
+                    descriptor: ModifierDescriptor.None,
+                    value: -1
+                )
                 .Configure();
 
             BlueprintAbilityAreaEffect deadSightArea =
                 AbilityAreaEffectConfigurator.New("DeadSightArea", DeadSightAreaGuid)
                     .SetSize(30.Feet())
+                    .SetShape(AreaEffectShape.Cylinder)                    
+                    .SetTargetType(BlueprintAbilityAreaEffect.TargetType.Any)
+                    .SetAffectEnemies(true)
+                    .SetAggroEnemies(true)
                     .AddComponent<AbilityAreaEffectRunAction>(c =>
                     {
                         c.UnitEnter = new ActionList
@@ -286,7 +364,36 @@ namespace CruoromancerTweaks.ModifiedContent.Schools
                                             }
                                         }
                                     }
-                                },
+                                }                               
+                            }
+                        };
+
+                        c.UnitExit = new ActionList
+                        {
+                            Actions = new GameAction[]
+                            {
+                                new ContextActionRemoveBuff
+                                {
+                                    m_Buff = undeadAllyBuff.ToReference<BlueprintBuffReference>()
+                                }
+                            }
+                        };
+                    })                    
+                    .Configure();
+
+            BlueprintAbilityAreaEffect deadSightArea2 =
+                AbilityAreaEffectConfigurator.New("DeadSightArea2", DeadSightArea2Guid)
+                    .SetSize(30.Feet())
+                    .SetShape(AreaEffectShape.Cylinder)                    
+                    .SetTargetType(BlueprintAbilityAreaEffect.TargetType.Any)
+                    .SetAffectEnemies(true)
+                    .SetAggroEnemies(true)                    
+                    .AddComponent<AbilityAreaEffectRunAction>(c =>
+                    {
+                        c.UnitEnter = new ActionList
+                        {
+                            Actions = new GameAction[]
+                            {
                                 new Conditional
                                 {
                                     ConditionsChecker = new ConditionsChecker
@@ -297,6 +404,11 @@ namespace CruoromancerTweaks.ModifiedContent.Schools
                                             new ContextConditionHasFact
                                             {
                                                 m_Fact = undeadType.ToReference<BlueprintUnitFactReference>(),
+                                                Not = true
+                                            },
+                                            new ContextConditionHasFact
+                                            {
+                                                m_Fact = constructType.ToReference<BlueprintUnitFactReference>(),
                                                 Not = true
                                             }
                                         }
@@ -322,10 +434,6 @@ namespace CruoromancerTweaks.ModifiedContent.Schools
                             {
                                 new ContextActionRemoveBuff
                                 {
-                                    m_Buff = undeadAllyBuff.ToReference<BlueprintBuffReference>()
-                                },
-                                new ContextActionRemoveBuff
-                                {
                                     m_Buff = livingEnemyDebuff.ToReference<BlueprintBuffReference>()
                                 }
                             }
@@ -333,8 +441,17 @@ namespace CruoromancerTweaks.ModifiedContent.Schools
                     })
                     .Configure();
 
+            BlueprintBuff deadSightSelfBuff =
+                BuffConfigurator.New("DeadSightSelfBuff", DeadSightSelfBuffGuid)
+                    .AddBlindsense(30.Feet()) 
+                    .AddAreaEffect(deadSightArea.ToReference<BlueprintAbilityAreaEffectReference>())
+                    .AddAreaEffect(deadSightArea2.ToReference<BlueprintAbilityAreaEffectReference>())
+                    .Configure();
+
             ActivatableAbilityConfigurator.For(necromancySchoolGreaterAbility)
-                .SetBuff(undeadTouchBuff)
+                .SetBuff(deadSightSelfBuff)
+                .SetDisplayName(DeadSightName)
+                .SetDescription(DeadSightDescription)
                 .Configure();
         }
     }
