@@ -10,6 +10,7 @@ namespace CruoromancerTweaks.ModifiedContent.Classes
     public class Cruoromancer
     {
         private static readonly string BloodInfusionFreeName = "BloodInfusionFree.Name";
+        private static readonly string BloodInfusionFreeDescription = "BloodInfusion.Description";
         //private static readonly string addAugmentSummoningName = "AugmentSummoning.Name";
         //private static readonly string addAugmentSummoningDescription = "AugmentSummoning.Description";
 
@@ -27,6 +28,11 @@ namespace CruoromancerTweaks.ModifiedContent.Classes
             BlueprintFeature profaneInfusionFeature = BlueprintTool.Get<BlueprintFeature>("856776AC66A44E6381D303E223E48BC1");
             BlueprintArchetype cruoromancerArchetype = BlueprintTool.Get<BlueprintArchetype>("8789dcfc6f8e4fe49d80b90472ea6993");
             BlueprintFeature wizardFeatSelection = BlueprintTool.Get<BlueprintFeature>("8c3102c2ff3b69444b139a98521a4899");
+
+            FeatureConfigurator.For(bloodInfusionFeature)
+                .SetDescription(BloodInfusionFreeDescription)
+                .SetDescriptionShort(BloodInfusionFreeDescription)
+                .Configure();
 
             BlueprintFeature bloodInfusionFreeFeature =
                 FeatureConfigurator.New("BloodInfusionFreeFeature", BloodInfusionFreeFeatureGuid)
@@ -54,7 +60,7 @@ namespace CruoromancerTweaks.ModifiedContent.Classes
                    bloodInfusionFreeFeature
                )
                .AddToAddFeatures(
-                   level: 6,
+                   level: 5,
                    augmentSummoning
                )
                .AddToAddFeatures(

@@ -3,16 +3,19 @@ using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using BlueprintCore.Utils.Types;
 using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
+using Kingmaker.ResourceLinks;
 using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
+using Kingmaker.UnitLogic.Abilities.Components.Base;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
@@ -33,12 +36,14 @@ namespace CruoromancerTweaks.ModifiedContent.Classes
         private const string CommandingInfusionLv15BuffGuid = "7D9461259987457AB8B02232E1B8F3FF";
         private const string CommandingInfusionLv15AreaGuid = "CB7B1A233D27420B986B112B0B1341DD";
         private const string CommandingInfusionLv15AllyBuffGuid = "76C41DFD03CD463EA2DDB4C70D18B843";
+        private const string WizardClassGuid = "ba34257984f4c41408ce1dc2004e342e";
         public static void Configure()
         {
             BlueprintBuff commandingInfusionAllyBuff = BlueprintTool.Get<BlueprintBuff>("cd72077182894e4e935662a16fe0051b");
             BlueprintBuff commandingInfusionBuff = BlueprintTool.Get<BlueprintBuff>("406711ebdd8f4f419e95c9b4778b5927");
             BlueprintFeature commandingInfusionFeature = BlueprintTool.Get<BlueprintFeature>("52ab0f623a2446758c0f22fedc2bda70");
             BlueprintAbility commandingInfusionAbility = BlueprintTool.Get<BlueprintAbility>("6489492a34994d00926e8802c3f2b4cf");
+            BlueprintAbility masteryOfFlesh = BlueprintTool.Get<BlueprintAbility>("921ed6a6751d71140b4e75ab7bcb9890");
             BlueprintAbilityAreaEffect CommandingInfusionArea = BlueprintTool.Get<BlueprintAbilityAreaEffect>("aa55fa6be38a469d934ca46d8fab6d6a");
 
             BlueprintFeature commandingInfusionCheckFeature = BlueprintTool.Get<BlueprintFeature>("9e201f3ef56a4c76a55b24b0ab53262c");
@@ -90,7 +95,7 @@ namespace CruoromancerTweaks.ModifiedContent.Classes
                     .SetFlags(BlueprintBuff.Flags.HiddenInUi)
                     .SetStacking(StackingType.Stack)
                     .AddContextRankConfig(
-                        ContextRankConfigs.CasterLevel()
+                        ContextRankConfigs.ClassLevel(new[] { WizardClassGuid })
                             .WithMultiplyByModifierProgression(3)
                     )
                     .AddTemporaryHitPointsFromAbilityValue(
@@ -104,26 +109,56 @@ namespace CruoromancerTweaks.ModifiedContent.Classes
             //更新描述
             AbilityConfigurator.For(commandingInfusionAbility)
                 .SetDescription(Description)
-                 .EditComponent<AbilityEffectRunAction>(c =>
-                 {
-                     foreach (var action in c.Actions.Actions.OfType<ContextActionApplyBuff>())
-                     {
-                         if (action.m_Buff?.Get() == commandingInfusionBuff)
-                         {
-                             action.DurationValue = new ContextDurationValue
-                             {
-                                 Rate = DurationRate.Minutes,
-                                 DiceType = DiceType.Zero,
-                                 DiceCountValue = 0,
-                                 BonusValue = new ContextValue
-                                 {
-                                     ValueType = ContextValueType.CasterProperty,
-                                     Property = UnitProperty.Level
-                                 }
-                             };
-                         }
-                     }
-                 })
+                .SetAnimation(masteryOfFlesh.Animation)
+                .SetHasFastAnimation(true)
+                .EditComponent<AbilityEffectRunAction>(c =>
+                {
+                    foreach (var action in c.Actions.Actions.OfType<ContextActionApplyBuff>())
+                    {
+                        if (action.m_Buff?.Get() == commandingInfusionBuff)
+                        {
+                            action.DurationValue = new ContextDurationValue
+                            {
+                                Rate = DurationRate.Minutes,
+                                DiceType = DiceType.Zero,
+                                DiceCountValue = 0,
+                                BonusValue = new ContextValue
+                                {
+                                    ValueType = ContextValueType.CasterProperty,
+                                    Property = UnitProperty.Level
+                                }
+                            };
+                        }
+                    }
+                })
+                .AddAbilitySpawnFx(
+                    anchor: AbilitySpawnFxAnchor.ClickedTarget,
+                    delay: 0f,
+                    destroyOnCast: false,
+                    orientationAnchor: AbilitySpawnFxAnchor.None,
+                    orientationMode: AbilitySpawnFxOrientation.Copy,
+                    positionAnchor: AbilitySpawnFxAnchor.None,
+                    prefabLink: new PrefabLink
+                    {
+                        AssetId = "e2d7612f92d889a44a58ac01cad011c6"
+                    },
+                    time: AbilitySpawnFxTime.OnApplyEffect,
+                    weaponTarget: AbilitySpawnFxWeaponTarget.None
+                )
+                .AddAbilitySpawnFx(
+                    anchor: AbilitySpawnFxAnchor.ClickedTarget,
+                    delay: 0.2f,
+                    destroyOnCast: false,
+                    orientationAnchor: AbilitySpawnFxAnchor.None,
+                    orientationMode: AbilitySpawnFxOrientation.Copy,
+                    positionAnchor: AbilitySpawnFxAnchor.None,
+                    prefabLink: new PrefabLink
+                    {
+                        AssetId = "8a7208ae68b72b4459eb8836d350ee2e"
+                    },
+                    time: AbilitySpawnFxTime.OnApplyEffect,
+                    weaponTarget: AbilitySpawnFxWeaponTarget.None
+                )
                 .Configure();
 
             BuffConfigurator.For(commandingInfusionBuff)

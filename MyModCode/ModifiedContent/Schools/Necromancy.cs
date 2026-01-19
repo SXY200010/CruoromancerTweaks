@@ -55,12 +55,15 @@ namespace CruoromancerTweaks.ModifiedContent.Schools
         private static readonly string UndeadTouchDescription = "UndeadTouch.Description";
         private static readonly string DeadSightName = "DeadSight.Name";
         private static readonly string DeadSightDescription = "DeadSight.Description";
+        private static readonly string SpecialisationSchoolNecromancyDescription = "SpecialisationSchoolNecromancy.Description";
         public static void Configure()
         {
             BlueprintAbility turnUndeadNecromancy = BlueprintTool.Get<BlueprintAbility>(TurnUndeadNecromancyGuid);
             BlueprintFeature undeadType = BlueprintTool.Get<BlueprintFeature>("734a29b693e9ec346ba2951b27987e33");
             BlueprintFeature necromancySchoolBaseFeature = BlueprintTool.Get<BlueprintFeature>("927707dce06627d4f880c90b5575125f");
+            BlueprintProgression specialisationSchoolNecromancyProgression = BlueprintTool.Get<BlueprintProgression>("e9450978cc9feeb468fb8ee3a90607e3");
             BlueprintAbility necromancySchoolBaseAbility = BlueprintTool.Get<BlueprintAbility>("39af648796b7b9b4ab6321898ebb5fff");
+            BlueprintFeature necromancySchoolGreaterFeature = BlueprintTool.Get<BlueprintFeature>("82371e899df830e4bb955429d89b755c");
             BlueprintAbilityResource necromancySchoolBaseResource = BlueprintTool.Get<BlueprintAbilityResource>("d3c8231b4ab43d248944b6da83776522");
             BlueprintActivatableAbility necromancySchoolGreaterAbility = BlueprintTool.Get<BlueprintActivatableAbility>("23929ea35519488459ed30eea4425a04");
             BlueprintFeature constructType = BlueprintTool.Get<BlueprintFeature>("fd389783027d63343b4a5634bd81645f");
@@ -271,6 +274,7 @@ namespace CruoromancerTweaks.ModifiedContent.Schools
                 .Configure();
 
             FeatureConfigurator.For(necromancySchoolBaseFeature)
+                .SetDescription(SpecialisationSchoolNecromancyDescription)
                  .AddAbilityResources(
                     resource: undeadTouchResource,
                     restoreAmount: true
@@ -283,6 +287,10 @@ namespace CruoromancerTweaks.ModifiedContent.Schools
                          turnUndeadNecromancy.ToReference<BlueprintUnitFactReference>()
                      };
                  })
+                .Configure();
+
+            ProgressionConfigurator.For(specialisationSchoolNecromancyProgression)
+                .SetDescription(SpecialisationSchoolNecromancyDescription)
                 .Configure();
 
             BlueprintBuff undeadAllyBuff =
@@ -450,6 +458,11 @@ namespace CruoromancerTweaks.ModifiedContent.Schools
 
             ActivatableAbilityConfigurator.For(necromancySchoolGreaterAbility)
                 .SetBuff(deadSightSelfBuff)
+                .SetDisplayName(DeadSightName)
+                .SetDescription(DeadSightDescription)
+                .Configure();
+
+            FeatureConfigurator.For(necromancySchoolGreaterFeature)
                 .SetDisplayName(DeadSightName)
                 .SetDescription(DeadSightDescription)
                 .Configure();

@@ -36,6 +36,7 @@ namespace CruoromancerTweaks.ModifiedContent.Classes
         public static void Configure()
         {
             BlueprintFeature perfectInfusion = BlueprintTool.Get<BlueprintFeature>("74686a88b35946219aa72455c50a15b0");
+            BlueprintBuff eyesOfTheBodakBuff = BlueprintTool.Get<BlueprintBuff>("d404c44b919667347877e7580e1e7498");
 
             BlueprintBuff cooldownBuff =
                 BuffConfigurator.New(
@@ -57,6 +58,7 @@ namespace CruoromancerTweaks.ModifiedContent.Classes
                     school: SpellSchool.Necromancy,
                     descriptor: null
                 )
+                .SetFxOnStart(eyesOfTheBodakBuff.FxOnStart)
                 .Configure();
 
             BlueprintBuff profaneInfusionLv20Buff =

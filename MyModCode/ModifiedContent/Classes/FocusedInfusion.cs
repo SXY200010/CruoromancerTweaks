@@ -39,11 +39,16 @@ namespace CruoromancerTweaks.ModifiedContent.Classes
         public static void Configure()
         {
             BlueprintAbility ability = BlueprintTool.Get<BlueprintAbility>(FocusedInfusionAbilityGuid);
+            BlueprintAbility vampiricShadowShield = BlueprintTool.Get<BlueprintAbility>("a34921035f2a6714e9be5ca76c5e34b5");
+            BlueprintBuff vampiricShadowShieldBuff = BlueprintTool.Get<BlueprintBuff>("b23eb856f521ba041bccd05a0e472604");
 
             AbilityConfigurator.For(ability)
                 .SetDescription(Description)
                 .SetDescriptionShort(Description)
+                .SetAnimation(vampiricShadowShield.Animation)
+                .SetHasFastAnimation(true)
                 .Configure();
+            ability.AnimationStyle = vampiricShadowShield.AnimationStyle;
 
             //AbilityConfigurator.For(ability)
             //    .AddContextRankConfig(
@@ -82,6 +87,7 @@ namespace CruoromancerTweaks.ModifiedContent.Classes
                     descriptor: null,
                     school: SpellSchool.Necromancy
                 )
+                .SetFxOnStart(vampiricShadowShieldBuff.FxOnStart)
                 .Configure();
 
             BlueprintBuff focusedInfusionlv20Buff =
