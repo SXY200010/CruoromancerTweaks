@@ -1,6 +1,8 @@
 using BlueprintCore.Blueprints.Configurators.Root;
 using BlueprintCore.Utils;
 using CruoromancerTweaks.Feats;
+using CruoromancerTweaks.ModifiedContent.Background;
+using CruoromancerTweaks.ModifiedContent.BugFix;
 using CruoromancerTweaks.ModifiedContent.Classes;
 using CruoromancerTweaks.ModifiedContent.Schools;
 using HarmonyLib;
@@ -57,7 +59,7 @@ namespace CruoromancerTweaks
 
                     Logger.Info("Configuring blueprints.");
 
-                    MyFeat.Configure();
+                    //MyFeat.Configure();
                     PerfectInfusion.Configure();
                     FocusedInfusion.Configure();
                     SickeningInfusion.Configure();
@@ -65,6 +67,10 @@ namespace CruoromancerTweaks
                     ProfaneInfusion.Configure();
                     Cruoromancer.Configure();
                     Necromancy.Configure();
+                    BloodLine.Configure();
+                    DhampirRace.Configure();
+                    FingerOfDeath.Configure();
+                    GebianNecromancer.Configure();
                 }
                 catch (Exception e)
                 {

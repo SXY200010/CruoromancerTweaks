@@ -128,5 +128,77 @@
     "Key": "SpecialisationSchoolNecromancy.Description",
     "enGB": "The dread and feared necromancer commands undead and uses the foul power of unlife against his enemies.<br>Power over undead: You receive Turn Undead as a bonus feat. You can channel energy a number of times per day equal to 3 + your Intelligence modifier, but only to use this feat. The DC to save against these feats is equal to 10 + 1/2 your Wizard level + your Charisma modifier. At 20th level, undead cannot add their channel resistance to the save against this ability.<br>Undead Touch: As a standard action, you can touch an undead creature and infuse it with negative energy. This grants the target a +1 profane bonus on attack rolls and saving throws, plus 1 temporary hit point per caster level. The bonus on attacks and saves increases by 1 for every 5 wizard levels you possess. These bonuses last for a number of rounds equal to half your wizard level (minimum 1 round). You can use this ability a number of times per day equal to 3 + your Intelligence modifier.<br>Dead Sight: You emit a 30-foot-radius aura. You and all undead within the aura gain a +1 profane bonus on ability checks, attack rolls, saving throws, and damage rolls. Hostile living creatures within the aura take a –1 penalty on ability checks, attack rolls, saving throws, and damage rolls. Additionally, you gain blindsight.",
     "zhCN": "狰狞骇人的死灵师可命令不死生物，并使用禁忌的不死生命力量来对抗敌人。<br>驾驭亡者：你获得驱散死灵作为额外<b><color=#703565>专长</link></color></b>。你每天可引导能量的次数为<b><color=#703565>智力</color></b>调整值+3，但这些次数仅可被用于该专长。该专长的<b><color=#703565>豁免检定</color></b><b><color=#703565>难度等级</color></b>为10+1/2法师等级+<b><color=#703565>魅力</color></b>调整值。达到20级后，不死生物将无法在针对此能力进行豁免检定时附加它们的引导抗性加值。<br>不死之触：以一个标准动作，你可以碰触一个不死生物并替它注入负能量。使其攻击跟豁免检定的+1亵渎加值，以及每施法者等级1点的临时生命值。在攻击和豁免的加值会在你每5个法师等级增加1点。这些加值持续法师等级一半的轮数（至少1轮）。你每天可以使用这个能力的次数为3+智力调整值。<br>亡者视野：你发出一道30英尺范围的灵光。你自身与灵光范围内的所有不死生物在属性检定、攻击检定、豁免检定和伤害检定上获得+1亵渎加值；范围内的敌对活物在属性检定、攻击检定、豁免检定和伤害检定上受到-1减值。此外，你自身获得盲视。"
+  },
+
+  {
+    "Key": "BloodLineUndead.Name",
+    "enGB": "Blood Line Undead",
+    "zhCN": "亡灵血承"
+  },
+
+  {
+    "Key": "BloodLineUndead.Description",
+    "enGB": "Your family atmosphere is filled with a foul smell of a cemetery. Perhaps your ancestors were powerful necromancers or vampires, or maybe you were a deceased person who was suddenly brought back to life. Anyway, the power of death flows through you, influencing every action you make. You can summon the evil power of the dead. Unfortunately, each time you use this power, you get closer to joining them.<br> Necromancer Bloodline Extra Talent: Combat Casting, Hardened Stone, Iron Will, Skill Focus (Knowledge: Religion), Spell Focus, High Spell Focus, Robust, Tenacious.",
+    "zhCN": "你的家族弥漫着一股墓地的腐败气息。或许你的先祖曾是一名实力强劲的巫妖或吸血鬼，也可能是你自出生便是死者，只是突然被复活了而已。无论如何，死亡之力在你的身上流淌，影响着你的每个动作。你可以呼唤死者的邪恶力量。不幸的是，你每使用一次这种力量，就会离加入它们更近一步。<br>亡灵血承额外专长：战斗施法、顽石强韧、钢铁意志、技能专攻（学识：宗教）、法术专攻、高等法术专攻、健壮、顽强。"
+  },
+
+  {
+    "Key": "BloodLineUndeadArcana.Name",
+    "enGB": "Blood Line Undead Arcana",
+    "zhCN": "亡灵血承奥法"
+  },
+
+  {
+    "Key": "BloodlineUndeadClassSkill.Description",
+    "enGB": "The additional special skills bestowed by the Bloodline Undead",
+    "zhCN": "亡灵血承赋予的额外本职技能"
+  },
+
+  {
+    "Key": "BloodlineUndeadSpellLevel1.Name",
+    "enGB": "Ray Of Enfeeblement",
+    "zhCN": "衰弱射线"
+  },
+
+  {
+    "Key": "BloodlineUndeadSpellLevel1.Description",
+    "enGB": "When reaching level 3, and every 2 levels thereafter, the Warlock can learn an additional spell from Bloodline. This spell is not counted towards the number of spells granted by the new level.<br> Weakness Ray: A dazzling ray shoots out from your hand. You need to successfully make a ranged touch attack check to hit the target. The target will suffer 1d6 + 1 point of strength penalty per 2 levels of the caster (up to a maximum of 1d6 + 5 points). The target's strength will not be reduced below 1 point. A successful Fortitude saving throw halves the penalty. Multiple penalties do not stack; only the highest penalty is taken.",
+    "zhCN": "达到3级时，以及之后每升2级，术士都可以额外学习一个来自于血承的法术。该法术不计入新等级赋予的法术数量。<br>衰弱射线：一道耀眼的射线从你的手中射出。你需要成功进行远程接触攻击检定，才能够击中目标。目标会受到1d6+每两个施法者等级1点力量减值（最高1d6+5点）。目标的力量不会被降到1点以下。强韧豁免成功可使减值减半。多个减值不会叠加，只取其中最高的减值。"
+  },
+
+  {
+    "Key": "ImmunityPrecisionDamage.Name",
+    "enGB": "Immunity Precision Damage",
+    "zhCN": "无漏之躯"
+  },
+
+  {
+    "Key": "ImmunityPrecisionDamage.Description",
+    "enGB": "Your body has transcended the limitations of the physical world. There are no conventional vulnerabilities. You are immune to precise damage, such as sneak attacks.",
+    "zhCN": "你的身躯已经超脱了肉体凡胎的限制，不存在常规意义上的要害，你可以免疫精准伤害，例如偷袭。"
+  },
+
+  {
+    "Key": "DhampirResonance.Name",
+    "enGB": "Dhampir Resonance",
+    "zhCN": "吸血鬼共鸣"
+  },
+
+  {
+    "Key": "DhampirResonance.Description",
+    "enGB": "Your veins are infused with the power of the undead. When using spells from the Undead School, the caster's level increases by 1/4 of the character's level.",
+    "zhCN": "吸血裔能与死亡的力量共鸣，使用死灵学派法术时施法者等级提升1/4角色等级。"
+  },
+
+  {
+    "Key": "DhampirResonanceAbility.Description",
+    "enGB": "Resonate with the power of death through your blood, and your caster level for the Necromancy school will increase based on your character level.",
+    "zhCN": "通过你的血脉与死亡的力量共鸣，根据角色等级提升用于死灵学派的施法者等级"
+  },
+
+  {
+    "Key": "GebianNecromancer.Description",
+    "enGB": "Gebian Necromancer adds Lore (Religion) to the list of her class skills. Gebian Necromancer gains a +1 bonus on attack rolls, AC, and initiative checks, and gains a +1 bonus on damage rolls made with necromancy spells.<br>If the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+    "zhCN": "盖布死灵师将<b><color=#703565>学识（宗教）</color></b>加入本职<b><color=#703565>技能</color></b>列表。其召唤的不死生物和死灵生物伙伴的攻击检定、AC和先攻获得+1加值，并且自身在使用死灵法术造成的伤害上获得+1加值。<br>如果角色已在角色创建过程中，通过职业获取了上述本职技能，<b><color=#703565>武器擅长</color></b>或防具擅长，则背景提供的相应加值改为相关技能上的+1表现加值，相关武器上的+1增强加值，相关防具上的<b><color=#703565>防具检定减值</color></b>–1。"
   }
 ]
