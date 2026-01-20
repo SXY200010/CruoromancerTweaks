@@ -46,9 +46,17 @@ namespace CruoromancerTweaks.ModifiedContent.Background
                 .RemoveComponents(
                 predicate: c => c is AbilityTargetHasOneOfConditionsOrHP ? true : false
                 )
-                .Configure();
+                .SetDescription("BloodDrinker.Description")
+                .Configure(delayed: true);
+            //移除饮血者描述
+            FeatureConfigurator.For("96983d50aca1d214e8adc57a39b41c25")
+                .SetDescription("BloodDrinker.Description")
+                .Configure(delayed: true);
+            BuffConfigurator.For("796b2c438fbb3414eb2cd041b625e8af")
+                .SetDescription("BloodDrinker.Description")
+                .Configure(delayed: true);
             //增加Buff施法者等级+1
-            BlueprintBuff DhampirResonanceBuffLv4 = 
+            BlueprintBuff DhampirResonanceBuffLv4 =
                 BuffConfigurator.New("DhampirResonanceBuffLv4", "E180EB5E-8F4A-42EF-BE48-FBCB19261256")
                 .SetFlags(BlueprintBuff.Flags.HiddenInUi)
                 .AddIncreaseSpellSchoolCasterLevel(
@@ -56,7 +64,7 @@ namespace CruoromancerTweaks.ModifiedContent.Background
                     school: SpellSchool.Necromancy,
                     descriptor: ModifierDescriptor.Racial
                 )
-                .Configure();
+                .Configure(delayed: true);
             BlueprintBuff DhampirResonanceBuffLv8 =
                 BuffConfigurator.New("DhampirResonanceBuffLv8", "C1EF7B8C-5E64-4E6C-82D4-45D54EC4A7FF")
                 .SetFlags(BlueprintBuff.Flags.HiddenInUi)
@@ -65,7 +73,7 @@ namespace CruoromancerTweaks.ModifiedContent.Background
                     school: SpellSchool.Necromancy,
                     descriptor: ModifierDescriptor.Racial
                 )
-                .Configure();
+                .Configure(delayed: true);
             BlueprintBuff DhampirResonanceBuffLv12 =
                 BuffConfigurator.New("DhampirResonanceBuffLv12", "582D513F-6BCF-4036-AF63-F31A48871771")
                 .SetFlags(BlueprintBuff.Flags.HiddenInUi)
@@ -74,7 +82,7 @@ namespace CruoromancerTweaks.ModifiedContent.Background
                     school: SpellSchool.Necromancy,
                     descriptor: ModifierDescriptor.Racial
                 )
-                .Configure();
+                .Configure(delayed: true);
             BlueprintBuff DhampirResonanceBuffLv16 =
                 BuffConfigurator.New("DhampirResonanceBuffLv16", "2DCCD255-ACDB-4388-B39E-B9F8356861D6")
                 .SetFlags(BlueprintBuff.Flags.HiddenInUi)
@@ -83,7 +91,7 @@ namespace CruoromancerTweaks.ModifiedContent.Background
                     school: SpellSchool.Necromancy,
                     descriptor: ModifierDescriptor.Racial
                 )
-                .Configure();
+                .Configure(delayed: true);
             BlueprintBuff DhampirResonanceBuffLv20 =
                 BuffConfigurator.New("DhampirResonanceBuffLv20", "DE12DBE0-ACC1-4B61-AB94-38F0BAAC2382")
                 .SetFlags(BlueprintBuff.Flags.HiddenInUi)
@@ -92,16 +100,16 @@ namespace CruoromancerTweaks.ModifiedContent.Background
                     school: SpellSchool.Necromancy,
                     descriptor: ModifierDescriptor.Racial
                 )
-                .Configure();
+                .Configure(delayed: true);
             //增加能力吸血鬼共鸣
-            BlueprintAbility DhampirResonanceAbility = 
+            BlueprintAbility DhampirResonanceAbility =
                 AbilityConfigurator.New("DhampirResonance", "47B00733-6F50-4B5A-85CD-91F505C06455")
                 .SetDisplayName("DhampirResonance.Name")
                 .SetDescription("DhampirResonanceAbility.Description")
                 .SetType(AbilityType.Supernatural)
                 .SetRange(AbilityRange.Personal)
                 .SetIcon(BlueprintTool.Get<BlueprintFeature>("703c488da4a34dc883dd7787e8d7ed51").Icon)
-                .AddComponent<AbilityEffectRunAction>(c=>
+                .AddComponent<AbilityEffectRunAction>(c =>
                 {
                     c.Actions = new ActionList
                     {
@@ -285,9 +293,9 @@ namespace CruoromancerTweaks.ModifiedContent.Background
                         }
                     };
                 })
-                .Configure();
+                .Configure(delayed: true);
             //增加特长吸血鬼共鸣（不可选）
-            BlueprintFeature DhampirResonanceFeature = 
+            BlueprintFeature DhampirResonanceFeature =
             FeatureConfigurator.New("DhampirResonanceFeature", "A822CF12-D0C8-41F2-A741-E0307E21D7EA")
                 .SetDisplayName("DhampirResonance.Name")
                 .SetDescription("DhampirResonance.Description")
@@ -297,11 +305,11 @@ namespace CruoromancerTweaks.ModifiedContent.Background
                 {
                     DhampirResonanceAbility
                 })
-                .Configure();
+                .Configure(delayed: true);
             //增加种族特性
             RaceConfigurator.For("64e8b7d5f1ae91d45bbf1e56a3fdff01")
                 .AddToFeatures(DhampirResonanceFeature)
-                .Configure();
+                .Configure(delayed: true);
         }
     }
 }

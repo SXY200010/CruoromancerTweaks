@@ -200,5 +200,29 @@
     "Key": "GebianNecromancer.Description",
     "enGB": "Gebian Necromancer adds Lore (Religion) to the list of her class skills. Gebian Necromancer gains a +1 bonus on attack rolls, AC, and initiative checks, and gains a +1 bonus on damage rolls made with necromancy spells.<br>If the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
     "zhCN": "盖布死灵师将<b><color=#703565>学识（宗教）</color></b>加入本职<b><color=#703565>技能</color></b>列表。其召唤的不死生物和死灵生物伙伴的攻击检定、AC和先攻获得+1加值，并且自身在使用死灵法术造成的伤害上获得+1加值。<br>如果角色已在角色创建过程中，通过职业获取了上述本职技能，<b><color=#703565>武器擅长</color></b>或防具擅长，则背景提供的相应加值改为相关技能上的+1表现加值，相关武器上的+1增强加值，相关防具上的<b><color=#703565>防具检定减值</color></b>–1。"
+  },
+
+  {
+    "Key": "undeadType.Description",
+    "enGB": "The balance between life and death has been shattered within you. The frigid breath of death has completely overwhelmed your vitality, and you have been fully transformed into an undead creature.",
+    "zhCN": "生死之间的平衡在你身上被打破了，冰冷的死气完全压倒你的生机，你彻底转变成一名不死生物。"
+  },
+
+  {
+    "Key": "UndeadOneOfUs.Description",
+    "enGB": "Upon reaching Level 20, your body is permeated by the power of death, and you no longer possess vital organs in the conventional sense. You gain immunity to cold, paralysis, sleep, and precision damage. You also acquire damage reduction 5/—. Additionally, you get a +4 morale bonus on saving throws against spells and spell-like abilities cast by undead creatures.",
+    "zhCN": "达到20级后，你的躯体被死亡的力量浸润了，再也没有常规意义上的要害，你对寒冷、麻痹、睡眠和精准伤害免疫。同时获得伤害减免5/—。你在对抗不死生物施展的法术和类法术能力时，豁免检定获得+4士气加值。"
+  },
+
+  {
+    "Key": "BloodDrinker.Description",
+    "enGB": "Limited to three uses per day, you can drain blood from a living creature or from the corpse of a living being. When you do so, you gain 5 temporary hit points, plus an additional 5 temporary hit points for every three Hit Dice you possess. You also gain a +1 bonus on Fortitude saving throws. All these effects last for 1 hour.",
+    "zhCN": "每日限三次，你可以从一个活物身上吸血，或者从活物的尸体上吸血。若如此做，你获得5点临时生命值，你每拥有三个生命骰，额外获得5点临时生命值。你还会在强韧豁免检定上获得+1加值。以上效果持续1小时。"
+  },
+
+  {
+    "Key": "UndeadFeatSelection.Description",
+    "enGB": "When reaching level 7, and every 6 levels thereafter, the sorcerer gains 1 additional feat, which is selected from the feat list corresponding to each bloodline. The character must meet the prerequisites of the additional feat.<br>Additional Feats for Undead Bloodline: Combat Casting, Diehard, Iron Will, Skill Focus (Knowledge: Religion), Spell Focus, Greater Spell Focus, Toughness, Tenacious, Metamagic (Maximize Spell).",
+    "zhCN": "达到7级时，以及之后每升6级，术士都会获得1个额外专长，从各血承对应的专长列表中选择。角色必须满足额外专长的先决条件。 <br>亡灵血承额外专长：战斗施法、顽石强韧、钢铁意志、技能专攻（学识：宗教）、法术专攻、高等法术专攻、健壮，顽强，超魔（法术极效）。"
   }
 ]

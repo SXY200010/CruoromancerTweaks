@@ -1,4 +1,5 @@
 ﻿using BlueprintCore.Blueprints.CustomConfigurators.Classes;
+using BlueprintCore.Blueprints.CustomConfigurators.Classes.Selection;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
@@ -17,7 +18,7 @@ namespace CruoromancerTweaks.ModifiedContent.Classes
     internal class BloodLine
     {
         private static readonly string[] bloodLineUndeadProgressionGuids = [
-            "a1a8bf61cadaa4143b2d4966f2d1142e", 
+            "a1a8bf61cadaa4143b2d4966f2d1142e",
             "a56252fbbd7b45db97129187ee1fa3ba",
             "618c6b173f6947843a62e0cbbed86d16",
             "5bc63fdb68b539f4fa500cfb2d0fe0f6"
@@ -33,42 +34,40 @@ namespace CruoromancerTweaks.ModifiedContent.Classes
         private static readonly string BloodlineUndeadSpellLevel1Guid = "3e4080a48cbd3154aac907befca64801";
         private static readonly string BloodlineUndeadSpellLevel1DisplayName = "BloodlineUndeadSpellLevel1.Name";
         private static readonly string BloodlineUndeadSpellLevel1Description = "BloodlineUndeadSpellLevel1.Description";
-        
+
         private static readonly string immunityPrecisionDamageDisplayName = "ImmunityPrecisionDamage.Name";
         private static readonly string immunityPrecisionDamageDescription = "ImmunityPrecisionDamage.Description";
 
         public static void Configure()
         {
             BlueprintAbility RayOfenfeeblementAbility = BlueprintTool.Get<BlueprintAbility>("450af0402422b0b4980d9c2175869612");
-            BlueprintFeature undeadTypeLevelUp15 = FeatureConfigurator.New("undeadTypeFeature15", "C3C79895-5F86-4942-82BC-D5EFC10A5493")
-                .CopyFrom(BlueprintTool.Get<BlueprintFeature>("734a29b693e9ec346ba2951b27987e33"))
+            BlueprintFeature undeadType = BlueprintTool.Get<BlueprintFeature>("734a29b693e9ec346ba2951b27987e33");
+            BlueprintFeature undeadImmunities = BlueprintTool.Get<BlueprintFeature>("8a75eb16bfff86949a4ddcb3dd2f83ae");
+            BlueprintFeature undeadTypeLevelUp = FeatureConfigurator.New("undeadTypeFeature15", "C3C79895-5F86-4942-82BC-D5EFC10A5493")
+                .CopyFrom(undeadType,
+                component =>
+                {
+                    return true;
+                })
                 .SetIcon(BlueprintTool.Get<BlueprintAbility>("57fcf8016cf04da4a8b33d2add14de7e").Icon)
-                .Configure();
-            BlueprintFeature undeadTypeLevelUp20 = FeatureConfigurator.New("undeadTypeFeature20", "FB01543A-40D3-4CF0-BBA3-1AD8222A1B15")
-                .CopyFrom(BlueprintTool.Get<BlueprintFeature>("734a29b693e9ec346ba2951b27987e33"))
-                .SetHideInCharacterSheetAndLevelUp(true)
-                .SetHideInUI(true)
-                .Configure();
+                .SetDescription("undeadType.Description")
+                .Configure(delayed: true);
             BlueprintFeature undeadImmunitiesLevelUp = FeatureConfigurator.New("undeadImmunitiesFeature", "52623305-1245-420E-8D60-D103F9C361E5")
-                .CopyFrom(BlueprintTool.Get<BlueprintFeature>("8a75eb16bfff86949a4ddcb3dd2f83ae"))
+                .CopyFrom(undeadImmunities,
+                component =>
+                {
+                    return true;
+                })
                 .SetHideInCharacterSheetAndLevelUp(true)
                 .SetHideInUI(true)
-                .Configure();
-            BlueprintFeature ImmunityPrecisionDamage = FeatureConfigurator.New("ImmunityPrecisionDamage", "845FD279-D06C-4EEA-B79F-544C67859581")
-                .AddComponent<AddImmunityToPrecisionDamage>()
-                .SetGroups(FeatureGroup.Feat)
-                .SetDisplayName(immunityPrecisionDamageDisplayName)
-                .SetDescription(immunityPrecisionDamageDescription)
-                .SetIcon(BlueprintTool.Get<BlueprintFeature>("b3e403ebbdad8314386270fefc4b4cc8").Icon)
-                .Configure();
+                .Configure(delayed: true);
             //修改血承名称，添加15/20级被动
             foreach (string guid in bloodLineUndeadProgressionGuids)
             {
                 ProgressionConfigurator.For(guid)
                     .SetDisplayName(displayNameBloodLine)
                     .SetDescription(displayDescriptionBloodLine)
-                    .AddToLevelEntry(15, [undeadTypeLevelUp15, undeadImmunitiesLevelUp])
-                    .AddToLevelEntry(20, [undeadTypeLevelUp20, undeadImmunitiesLevelUp])
+                    .AddToLevelEntry(15, [undeadTypeLevelUp, undeadImmunitiesLevelUp])
                     .Configure(delayed: true);
             }
             //修改血承名称
@@ -82,6 +81,11 @@ namespace CruoromancerTweaks.ModifiedContent.Classes
             FeatureConfigurator.For(bloodLineClassSkillGuid)
                 .SetDescription(bloodLineClassSkillDescription)
                 .Configure(delayed: true);
+            //修改血承专长选择
+            FeatureSelectionConfigurator.For("a29b72a804f7cb243b01e99c42452636")
+                .AddToAllFeatures(BlueprintTool.Get<BlueprintFeature>("7f2b282626862e345935bbea5e66424b"))
+                .SetDescription("UndeadFeatSelection.Description")
+                .Configure();
             //修改血承3级技能
             FeatureConfigurator.For(BloodlineUndeadSpellLevel1Guid)
                 .SetDisplayName(BloodlineUndeadSpellLevel1DisplayName)
@@ -102,7 +106,12 @@ namespace CruoromancerTweaks.ModifiedContent.Classes
                 .Configure(delayed: true);
             //修改20级亡者之列
             FeatureConfigurator.For("b3e403ebbdad8314386270fefc4b4cc8")
-                .AddComponent<AddImmunityToPrecisionDamage>()
+                .AddImmunityToPrecisionDamage()
+                .AddFacts([
+                    undeadTypeLevelUp,
+                    undeadImmunitiesLevelUp
+                ])
+                .SetDescription("UndeadOneOfUs.Description")
                 .Configure(delayed: true);
         }
     }
