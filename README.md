@@ -57,3 +57,65 @@
 <ul>
     <li>修复了恶心灌注会导致法术恶心到自己和队友的问题。</li>
 </ul>
+
+<hr>
+<b><h1>Changes</h1></b>
+
+<h3>Cruoromancer Adjustments</h3>
+
+<p><b>Level 1</b></p>
+<ul>
+  <li><b>Focused Infusion</b>: Limited to once per round. At 5th level, the DC bonus increases to +2. At 8th level, this infusion becomes a free action.</li>
+  <li><b>Sickening Infusion</b>: Limited to once per round. The sickened condition lasts for <b>1 + half your wizard level</b> rounds. At 8th level, this infusion becomes a free action.</li>
+</ul>
+
+<p><b>Level 5</b></p>
+<ul>
+  <li>The wizard bonus feat normally gained at 5th level is delayed to <b>6th level</b> and is fixed as <b>Augment Summoning</b>.</li>
+  <li><b>Commanding Infusion</b>: The Strength and Charisma bonuses are changed from enhancement bonuses to <b>inherent bonuses</b>. The affected target tag is changed from <b>Skeleton</b> to <b>Undead</b>. At 15th level, undead summoned in this way gain <b>temporary hit points equal to three times your wizard level</b>.</li>
+</ul>
+
+<p><b>Level 15</b></p>
+<ul>
+  <li><b>Profane Infusion</b> is added: Usable once per round as a free action. The next necromancy spell cast gains a <b>+2 bonus to caster level</b>.</li>
+</ul>
+
+<p><b>Level 20</b></p>
+<ul>
+  <li><b>Perfect Infusion</b>: Blood infusions no longer cost hit points. In addition, the bonuses from <b>Focused Infusion</b> and <b>Profane Infusion</b> increase to <b>+4</b>.</li>
+</ul>
+
+<h3>Necromancy School Ability Adjustments</h3>
+
+<p><b>Level 1</b></p>
+<ul>
+  <li><b>Turn Undead</b> additionally deals <b>1d4 + half your wizard level + your Intelligence modifier</b> damage to hostile undead creatures.</li>
+  <li><b>Grave Touch</b> is renamed to <b>Undead Touch</b>: As a standard action, you can touch an undead creature and infuse it with negative energy. The target gains a <b>+1 profane bonus</b> on attack rolls and saving throws, plus <b>1 temporary hit point per Hit Die</b>. The bonus on attacks and saves increases by <b>+1 for every 5 wizard levels</b> you possess. These bonuses last for <b>half your wizard level</b> rounds (minimum 1 round). You can use this ability a number of times per day equal to <b>3 + your Intelligence modifier</b>.</li>
+</ul>
+
+<p><b>Level 8</b></p>
+<ul>
+  <li><b>Life Sight</b> is replaced with <b>Dead Sight</b>: You emit a 30-foot-radius aura. You and all undead within the aura gain a <b>+1 profane bonus</b> on ability checks, attack rolls, saving throws, and damage rolls. Hostile living creatures within the aura take a <b>–1 penalty</b> on those same rolls. Additionally, you gain <b>blindsight</b>.</li>
+</ul>
+
+<h3>Undead Bloodline Adjustments</h3>
+<ul>
+  <li>Renamed to <b>Undead Bloodline</b>.</li>
+  <li><b>Level 3</b>: <i>Cause Fear</i> is replaced with <b>Ray of Enfeeblement</b>.</li>
+  <li><b>Level 15</b>: <b>Incorporeal Form</b> gains a passive effect: you gain the <b>Undead creature type</b>.</li>
+  <li><b>Level 20</b>: Gain immunity to sneak attack, and the Undead creature type is permanently applied.</li>
+</ul>
+
+<h3>Dhampir Adjustments</h3>
+<ul>
+  <li>Added <b>Dhampir Resonance</b>: When casting necromancy spells, your caster level increases by <b>1/4 of your character level</b>.</li>
+  <li>The exclusive feat <b>Blood Drinker</b> can now also drain blood directly from living creatures.</li>
+</ul>
+
+<h1></h1>
+
+<b><h1>Bug Fixes</h1></b>
+<ul>
+  <li>Fixed an issue where <b>Sickening Infusion</b> could apply the sickened condition to the caster and allies.</li>
+</ul>
+
