@@ -18,7 +18,7 @@
 
     {
     "Key": "FocusedInfusionCooldown.Name",
-    "enGB": "Cooling Down",
+    "enGB": "On Cooldown",
     "zhCN": "冷却中……"
   },
 
@@ -36,13 +36,13 @@
 
   {
     "Key": "SickeningInfusionCooldown.Name",
-    "enGB": "Cooling Down",
+    "enGB": "On Cooldown",
     "zhCN": "冷却中……"
   },
 
   {
     "Key": "SickeningInfusion.Description",
-    "enGB": "When the cruoromancer channels blood power in this way, a creature that takes damage from the infused necromancy spell becomes sickened for 1 + half your wizard level rounds. You can use this ability only once per turn. At 8th level, this infusion becomes a free action.",
+    "enGB": "When the cruoromancer uses this infusion, a creature that takes damage from the infused necromancy spell becomes sickened for (1 + half your wizard level) rounds. You can use this ability only once per turn. At 8th level, this infusion becomes a free action.",
     "zhCN": "融血师以此形式灌注血液之力时，受到被灌注的死灵法术伤害的生物陷入恶心状态，持续1 + 你的法师等级的一半的轮数。此能力每回合只能使用一次。8级时，此灌注改为一个自由动作。"
   },
 
@@ -66,7 +66,7 @@
 
   {
     "Key": "CommandingInfusion.Description",
-    "enGB": "When using this infusion with animate dead, the summoned undead and your undead companions gain a +4 innate bonus to Strength and Charisma for 1 minute per caster level. At 15th level, summoned undead and your undead companions affected in this way also gain temporary hit points equal to three times your wizard level.",
+    "enGB": "When using this infusion with animate dead, the summoned undead and your undead companions gain a +4 inherent bonus to Strength and Charisma for 1 minute per caster level. At 15th level, summoned undead and your undead companions affected in this way also gain temporary hit points equal to three times your wizard level.",
     "zhCN": "通过在施放操纵亡者时以此形式灌注血液之力，你召唤出的死灵生物以及不死生物伙伴将在力量和魅力属性上获得+4天赋加值，持续时间为每施法者等级一分钟。15级时，以此方式召唤的死灵生物以及不死生物伙伴额外获得数值为三倍你法师等级的临时生命值。"
   },
 
@@ -78,7 +78,7 @@
 
   {
     "Key": "ProfaneInfusion.Description",
-    "enGB": "When the cruoromancer uses this infusion, the infused necromancy spell gains a +2 bonus to its caster level. You can use this ability only once per turn, and activating it is a free action.",
+    "enGB": "When the cruoromancer uses this infusion, the infused necromancy spell gains a +2 bonus to its caster level. You can use this ability only once per turn, as a free action.",
     "zhCN": "当融血师以此形式灌注血液之力时，被灌注的死灵法术施法者等级获得+2加值。此能力每回合只能使用一次，为自由动作。"
   },
 
@@ -90,7 +90,7 @@
 
   {
     "Key": "TurnUndeadNecromancy.Description",
-    "enGB": "As a standard action, you can channel positive energy, causing all undead within 30 feet to become frightened and flee as if panicked. Undead can attempt a Will saving throw to resist this effect. The DC of this save is equal to 10 + 1/2 your cleric level + your Charisma modifier. Undead that fail the save flee for 1 minute, and can attempt a new saving throw each round to end the effect early. Additionally, this channeled energy deals 1d4 + 1/2 your wizard level + your Intelligence modifier damage to all hostile undead creatures within the area. When channel energy is used in this way, it produces no other effect (such as healing or harming nearby creatures).",
+    "enGB": "As a standard action, you can channel positive energy, causing all undead within 30 feet to become panicked. Undead can attempt a Will saving throw to resist this effect, the DC of this save is equal to (10 + half your cleric level + your Charisma modifier). Undead that fail the save flee for 1 minute, and can attempt a new saving throw each round to end the effect. Additionally, deal (1d4 + half your wizard level + your Intelligence modifier) damage to all hostile undead creatures within the area. When channel energy is used in this way, it produces no other effect (such as healing or harming nearby creatures).",
     "zhCN": "以一个标准动作，你可以引导正向能量，使30尺内的所有不死生物陷入惊恐状态并四处逃窜。不死生物可以进行意志豁免来抵抗该效果，豁免难度等级为10+1/2你的牧师等级+你的魅力调整值。豁免失败的不死生物将逃窜1分钟，并且每轮都可以进行一次新的豁免以提前结束该效果。此外，此次引导能量还会对区域内所有敌对的死灵生物造成1d4+1/2你的法师等级+你的智力调整值的伤害。若以此方式使用引导能量，它将不会产生任何治疗或其他效果。"
   },
 
@@ -120,13 +120,13 @@
 
   {
     "Key": "BloodInfusion.Description",
-    "enGB": "When a cruoromancer casts a Spell of the necromancy school, he can opt to infuse that spell with his undead-tainted blood as a swift action. As he increases in level, the power and effects of such infusions become more potent. Each time a cruoromancer uses blood infusion, he drains a portion of his own blood either by cutting himself with a blade or by opening a scab from a previous wound. When he does this, he takes an amount of damage equal to 1d4 + half his wizard level. A Cruoromancer can only affect a spell with a single type of blood infusion. <br> At 1st level, he can infuse his necromancy spells in either of the following ways:<br>Focused Infusion: When the cruoromancer uses this infusion, he adds +1 to the DC of the infused necromancy spell. This ability can be used only once per round. At 5th level, the bonus increases to +2. At 8th level, this infusion becomes a free action.<br>Sickening Infusion: When the cruoromancer channels blood power in this way, a creature that takes damage from the infused necromancy spell becomes sickened for 1 + half your wizard level rounds. You can use this ability only once per turn. At 8th level, this infusion becomes a free action.",
+    "enGB": "When a cruoromancer casts a Spell of the necromancy school, he can opt to infuse that spell with his undead-tainted blood as a swift action. As he increases in level, the power and effects of such infusions become more potent. Each time a cruoromancer uses blood infusion, he drains a portion of his own blood either by cutting himself with a blade or by opening a scab from a previous wound. When he does this, he takes an amount of damage equal to 1d4 + half his wizard level. <br> At 1st level, they can infuse their necromancy spells in either of the following ways:<br>Focused Infusion: When the cruoromancer uses this infusion, they adds +1 to the DC of the infused necromancy spell. This ability can be used only once per round. At 5th level, the bonus increases to +2. At 8th level, this infusion becomes a free action.<br>Sickening Infusion: When the cruoromancer channels blood power in this way, a creature that takes damage from the infused necromancy spell becomes sickened for 1 + half your wizard level rounds. You can use this ability only once per turn. At 8th level, this infusion becomes a free action.",
     "zhCN": "融血师在施放死灵学派的<b><color=#703565>法术</color></b>时，可以选择花费<b><color=#703565>迅捷动作</color></b>，将自己被死灵能量污染的血液之力灌注入该法术当中。随着等级提升，这些灌注效果和威力都会变得更强。每次施展融血灌注时，融血师要用刀割伤自己，或者揭开旧伤口的结痂，从而流失自身的一部分血液。这么做会让他受到<b><color=#703565>1d4</color></b>+法师等级一半的<b><color=#703565>伤害</color></b>。<br>1级起，他可以用以下任一形式灌注死灵法术：<br>聚能灌注：融血师以此形式灌注血液之力时，被灌注的死灵法术难度等级+1。此能力每回合只能使用一次。5级时，加值提升至+2；8级时，此灌注改为一个自由动作。<br>恶心灌注：融血师以此形式灌注血液之力时，受到被灌注的死灵法术伤害的生物陷入恶心状态，持续1 + 你的法师等级的一半的轮数。此能力每回合只能使用一次。8级时，此灌注改为一个自由动作。"
   },
 
   {
     "Key": "SpecialisationSchoolNecromancy.Description",
-    "enGB": "The dread and feared necromancer commands undead and uses the foul power of unlife against his enemies.<br>Power over undead: You receive Turn Undead as a bonus feat. You can channel energy a number of times per day equal to 3 + your Intelligence modifier, but only to use this feat. The DC to save against these feats is equal to 10 + 1/2 your Wizard level + your Charisma modifier. At 20th level, undead cannot add their channel resistance to the save against this ability.<br>Undead Touch: As a standard action, you can touch an undead creature and infuse it with negative energy. This grants the target a +1 profane bonus on attack rolls and saving throws, plus 1 temporary hit point per caster level. The bonus on attacks and saves increases by 1 for every 5 wizard levels you possess. These bonuses last for a number of rounds equal to half your wizard level (minimum 1 round). You can use this ability a number of times per day equal to 3 + your Intelligence modifier.<br>Dead Sight: You emit a 30-foot-radius aura. You and all undead within the aura gain a +1 profane bonus on ability checks, attack rolls, saving throws, and damage rolls. Hostile living creatures within the aura take a –1 penalty on ability checks, attack rolls, saving throws, and damage rolls. Additionally, you gain blindsight.",
+    "enGB": "The dread and feared necromancer commands undead and uses the foul power of unlife against his enemies.<br>Power over undead: You receive Turn Undead as a bonus feat. You can channel energy a number of times per day equal to 3 + your Intelligence modifier, but only to use this feat. The DC to save against these feats is equal to 10 + half your Wizard level + your Charisma modifier. At 20th level, undead cannot add their channel resistance to the save against this ability.<br>Undead Touch: As a standard action, you can touch an undead creature and infuse it with negative energy. This grants the target a +1 profane bonus on attack rolls and saving throws, plus 1 temporary hit point per caster level. The bonus on attacks and saves increases by 1 for every 5 wizard levels you possess. These bonuses last for a number of rounds equal to half your wizard level (minimum 1 round). You can use this ability a number of times per day equal to 3 + your Intelligence modifier.<br>Dead Sight: You emit a 30-foot-radius aura. You and all undead within the aura gain a +1 profane bonus on ability checks, attack rolls, saving throws, and damage rolls. Hostile living creatures within the aura take a –1 penalty on ability checks, attack rolls, saving throws, and damage rolls. Additionally, you gain blindsight.",
     "zhCN": "狰狞骇人的死灵师可命令不死生物，并使用禁忌的不死生命力量来对抗敌人。<br>驾驭亡者：你获得驱散死灵作为额外<b><color=#703565>专长</link></color></b>。你每天可引导能量的次数为<b><color=#703565>智力</color></b>调整值+3，但这些次数仅可被用于该专长。该专长的<b><color=#703565>豁免检定</color></b><b><color=#703565>难度等级</color></b>为10+1/2法师等级+<b><color=#703565>魅力</color></b>调整值。达到20级后，不死生物将无法在针对此能力进行豁免检定时附加它们的引导抗性加值。<br>不死之触：以一个标准动作，你可以碰触一个不死生物并替它注入负能量。使其攻击跟豁免检定的+1亵渎加值，以及每施法者等级1点的临时生命值。在攻击和豁免的加值会在你每5个法师等级增加1点。这些加值持续法师等级一半的轮数（至少1轮）。你每天可以使用这个能力的次数为3+智力调整值。<br>亡者视野：你发出一道30英尺范围的灵光。你自身与灵光范围内的所有不死生物在属性检定、攻击检定、豁免检定和伤害检定上获得+1亵渎加值；范围内的敌对活物在属性检定、攻击检定、豁免检定和伤害检定上受到-1减值。此外，你自身获得盲视。"
   },
 
@@ -186,7 +186,7 @@
 
   {
     "Key": "DhampirResonance.Description",
-    "enGB": "Your veins are infused with the power of the undead. When using spells from the Undead School, the caster's level increases by 1/4 of the character's level.",
+    "enGB": "Your veins are infused with the power of the undead. When using spells from the Necromancy School, the caster's level increases by a fourth of the character's level.",
     "zhCN": "吸血裔能与死亡的力量共鸣，使用死灵学派法术时施法者等级提升1/4角色等级。"
   },
 
@@ -198,7 +198,7 @@
 
   {
     "Key": "GebianNecromancer.Description",
-    "enGB": "Gebian Necromancer adds Lore (Religion) to the list of her class skills. Gebian Necromancer gains a +1 bonus on attack rolls, AC, and initiative checks, and gains a +1 bonus on damage rolls made with necromancy spells.<br>If the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+    "enGB": "Gebian Necromancer adds Lore (Religion) to their list of class skills. Gebian Necromancer gains a +1 bonus on attack rolls, AC, and initiative checks, and gains a +1 bonus on damage rolls made with necromancy spells.<br>If the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
     "zhCN": "盖布死灵师将<b><color=#703565>学识（宗教）</color></b>加入本职<b><color=#703565>技能</color></b>列表。其召唤的不死生物和死灵生物伙伴的攻击检定、AC和先攻获得+1加值，并且自身在使用死灵法术造成的伤害上获得+1加值。<br>如果角色已在角色创建过程中，通过职业获取了上述本职技能，<b><color=#703565>武器擅长</color></b>或防具擅长，则背景提供的相应加值改为相关技能上的+1表现加值，相关武器上的+1增强加值，相关防具上的<b><color=#703565>防具检定减值</color></b>–1。"
   },
 
