@@ -16,6 +16,7 @@ using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
 using Kingmaker.UnitLogic.Abilities.Components.Base;
+using Kingmaker.UnitLogic.Abilities.Components.CasterCheckers;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
@@ -111,6 +112,7 @@ namespace CruoromancerTweaks.ModifiedContent.Classes
                 .SetDescription(Description)
                 .SetAnimation(masteryOfFlesh.Animation)
                 .SetHasFastAnimation(true)
+                .RemoveComponents(c => c is AbilityCasterHasNoFacts)
                 .EditComponent<AbilityEffectRunAction>(c =>
                 {
                     foreach (var action in c.Actions.Actions.OfType<ContextActionApplyBuff>())
