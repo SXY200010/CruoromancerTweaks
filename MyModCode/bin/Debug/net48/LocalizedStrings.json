@@ -224,5 +224,17 @@
     "Key": "UndeadFeatSelection.Description",
     "enGB": "When reaching level 7, and every 6 levels thereafter, the sorcerer gains 1 additional feat, which is selected from the feat list corresponding to each bloodline. The character must meet the prerequisites of the additional feat.<br>Additional Feats for Undead Bloodline: Combat Casting, Diehard, Iron Will, Skill Focus (Knowledge: Religion), Spell Focus, Greater Spell Focus, Toughness, Tenacious, Metamagic (Maximize Spell).",
     "zhCN": "达到7级时，以及之后每升6级，术士都会获得1个额外专长，从各血承对应的专长列表中选择。角色必须满足额外专长的先决条件。 <br>亡灵血承额外专长：战斗施法、顽石强韧、钢铁意志、技能专攻（学识：宗教）、法术专攻、高等法术专攻、健壮，顽强，超魔（法术极效）。"
+  },
+
+  {
+    "Key": "CauseFear.Description",
+    "enGB": "The affected creature becomes frightened. If the subject succeeds at a Will save, it is shaken for 1d4 rounds. Creatures with 6 or more HD are immune to this effect. Cause fear dispels remove fear.",
+    "zhCN": "受到法术影响的生物会陷入<b><color=#703565>惊恐</color></b>状态。如果目标<b><color=#703565>意志豁免</color></b>成功，则陷入<b><color=#703565>战栗</color></b>状态 1D4<b><color=#703565>轮</color></b>。<b><color=#703565>生命骰数</color></b>不低于 6 的生物免疫该效果。惊恐术能够解除<b><color=#703565>移除恐惧</color></b>。"
+  },
+
+  {
+    "Key": "RayOfSickening.Description",
+    "enGB": "The subject is immediately sickened for the spell’s duration. A successful Fortitude save negates this effect. If the target is already sickened and fails the Fortitude save again, it becomes nauseated instead.",
+    "zhCN": "在法术持续时间内，目标陷入恶心状态。若目标通过强韧豁免，则免除此效果。若目标已经处于恶心状态且再次强韧豁免失败，则改为陷入反胃状态。"
   }
 ]

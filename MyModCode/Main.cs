@@ -1,10 +1,10 @@
 using BlueprintCore.Blueprints.Configurators.Root;
 using BlueprintCore.Utils;
 using CruoromancerTweaks.Feats;
-using CruoromancerTweaks.ModifiedContent.Background;
 using CruoromancerTweaks.ModifiedContent.BugFix;
 using CruoromancerTweaks.ModifiedContent.Classes;
-using CruoromancerTweaks.ModifiedContent.Schools;
+using CruoromancerTweaks.ModifiedContent.Feats;
+using CruoromancerTweaks.ModifiedContent.Spells.Necromancy;
 using HarmonyLib;
 using Kingmaker.Blueprints.JsonSystem;
 using System;
@@ -71,6 +71,7 @@ namespace CruoromancerTweaks
                     DhampirRace.Configure();
                     FingerOfDeath.Configure();
                     GebianNecromancer.Configure();
+                    Level1.Configure();
                 }
                 catch (Exception e)
                 {
