@@ -236,5 +236,17 @@
     "Key": "RayOfSickening.Description",
     "enGB": "The subject is immediately sickened for the spell’s duration. A successful Fortitude save negates this effect. If the target is already sickened and fails the Fortitude save again, it becomes nauseated instead.",
     "zhCN": "在法术持续时间内，目标陷入恶心状态。若目标通过强韧豁免，则免除此效果。若目标已经处于恶心状态且再次强韧豁免失败，则改为陷入反胃状态。"
+  },
+
+  {
+    "Key": "Scare.Description",
+    "enGB": "All living targets with fewer than 6 HD become frightened. If the target succeeds at a Will save, it is shaken for 1d4 rounds instead. Creatures with 6 or more HD are immune to this effect. Scare dispels remove fear.",
+    "zhCN": "所有生命骰数小于6的活物目标都将陷入<b><color=#703565>惊恐</color></b>状态。若生物进行<b><color=#703565>意志豁免</color></b>成功，则只陷入<b><color=#703565>战栗</color></b>状态1D4轮。生命骰数大于或等于6的生物对此效果免疫。恐吓术能够解除<b><color=#703565>移除恐惧</color></b>。"
+  },
+
+  {
+    "Key": "Boneshaker.Description",
+    "enGB": "You take control of a target creature’s skeleton, causing it to rattle violently within its flesh and deal grievous harm. The target takes <b><color=#703565>3d6</color></b> points of <b><color=#703565>damage</color></b>, plus 1d6 additional points of damage per 2 <b><color=#703565>caster levels</color></b>. This spell also affects undead creatures, but it has no effect on <b><color=#703565>incorporeal creatures</color></b> such as ghosts.",
+    "zhCN": "你控制一个目标生物体内的骨架。骨架在该生物血肉里剧烈颤抖，给生物带来重创。目标将受到<b><color=#703565>3d6</color></b>点<b><color=#703565>伤害</color></b>，此外再加上每两个<b><color=#703565>施法者等级</color></b>1d6点额外伤害。该法术对不死生物同样生效，但对幽灵等<b><color=#703565>虚体生物</color></b>无效。"
   }
 ]

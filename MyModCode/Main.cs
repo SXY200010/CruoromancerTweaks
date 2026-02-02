@@ -71,7 +71,8 @@ namespace CruoromancerTweaks
                     DhampirRace.Configure();
                     FingerOfDeath.Configure();
                     GebianNecromancer.Configure();
-                    Level1.Configure();
+                    NecromancyLevel1.Configure();
+                    NecromancyLevel2.Configure();
                 }
                 catch (Exception e)
                 {
