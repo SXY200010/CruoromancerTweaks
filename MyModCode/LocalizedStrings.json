@@ -248,5 +248,35 @@
     "Key": "Boneshaker.Description",
     "enGB": "You take control of a target creature’s skeleton, causing it to rattle violently within its flesh and deal grievous harm. The target takes <b><color=#703565>3d6</color></b> points of <b><color=#703565>damage</color></b>, plus 1d6 additional points of damage per 2 <b><color=#703565>caster levels</color></b>. This spell also affects undead creatures, but it has no effect on <b><color=#703565>incorporeal creatures</color></b> such as ghosts.",
     "zhCN": "你控制一个目标生物体内的骨架。骨架在该生物血肉里剧烈颤抖，给生物带来重创。目标将受到<b><color=#703565>3d6</color></b>点<b><color=#703565>伤害</color></b>，此外再加上每两个<b><color=#703565>施法者等级</color></b>1d6点额外伤害。该法术对不死生物同样生效，但对幽灵等<b><color=#703565>虚体生物</color></b>无效。"
+  },
+
+  {
+    "Key": "BoneFists.Description",
+    "enGB": "The bones of the target’s joints grow thick and sharp, painfully protruding through the skin at the knuckles, elbows, shoulders, spine, and knees. The target gains a <b><color=#703565>+1 bonus</color></b> to natural armor and a <b><color=#703565>+2 bonus</color></b> on damage rolls with <b><color=#703565>natural weapons</color></b>, and deals an additional <b><color=#703565>1d6</color></b> points of <b><color=#703565>piercing damage</color></b> on successful <b><color=#703565>grapple checks</color></b>. If the target is <b><color=#703565>undead</color></b>, it gains an additional <b><color=#703565>+2 bonus</color></b> to natural armor and receives <b><color=#703565>1d6</color></b> temporary hit points plus <b><color=#703565>1 temporary hit point</color></b> per <b><color=#703565>2 caster levels</color></b>.",
+    "zhCN": "目标关节处的骨头变得又粗又尖，在一阵疼痛中穿出指节、肘部、肩部、脊柱和膝盖处的皮肤。每个目标的天生防御获得<b><color=#703565>+1加值</color></b>，以<b><color=#703565>天生武器</color></b>进行的<b><color=#703565>伤害检定</color></b>获得<b><color=#703565>+2加值</color></b>，并且在成功进行<b><color=#703565>擒抱检定</color></b>时还会造成额外的<b><color=#703565>1d6</color></b>点<b><color=#703565>穿刺伤害</color></b>。若目标为<b><color=#703565>不死生物</color></b>，则其天生防御额外获得<b><color=#703565>+2加值</color></b>，并获得<b><color=#703565>1d6</color></b>点加上每<b><color=#703565>2个施法者等级</color></b><b><color=#703565>1点</color></b>的<b><color=#703565>临时生命值</color></b>。"
+  },
+
+  {
+    "Key": "PerniciousPoison.Description",
+    "enGB": "You weaken the target’s defenses against poison. The target takes a <b><color=#703565>-4 penalty</color></b> on saving throws against poison, and attempts to <b><color=#703565>cure</color></b> the poisoned target also take a <b><color=#703565>-4 penalty</color></b>. If the target <b><color=#703565>fails its saving throw</color></b>, it takes <b><color=#703565>1D3 points of Constitution damage</color></b>, and for the duration of the spell it suffers an additional <b><color=#703565>-2 penalty</color></b> on <b><color=#703565>Fortitude saving throws</color></b>.",
+    "zhCN": "你弱化目标对毒素的防御能力。目标在对抗毒素进行<b><color=#703565>豁免检定</color></b>时受到<b><color=#703565>-4减值</color></b>，尝试<b><color=#703565>治疗</color></b>目标身上的毒素时，相关检定同样受到<b><color=#703565>-4减值</color></b>。若目标<b><color=#703565>豁免失败</color></b>，则会受到<b><color=#703565>1D3点体质伤害</color></b>，并且在法术持续时间内，目标在进行<b><color=#703565>强韧豁免</color></b>时还将额外承受<b><color=#703565>-2减值</color></b>。"
+  },
+
+  {
+    "Key": "GhoulTouch.Description",
+    "enGB": "Imbuing you with negative energy, this spell allows you to paralyze a single living humanoid for the duration of the spell with a successful melee <b><color=#703565>touch attack</color></b>. A <b><color=#703565>paralyzed</color></b> subject exudes a carrion stench that causes all living creatures within a 10-foot radius (except you) to become <b><color=#703565>sickened</color></b> (<b><color=#703565>Fortitude</color></b> negates). A <b><color=#703565>neutralize poison</color></b> spell removes this effect from a sickened creature, and creatures immune to poison are unaffected by the stench; this is a <b><color=#703565>poison effect</color></b>. If the living target is slain while ghoul touch remains in effect, its corpse rises as a <b><color=#703565>ghoul</color></b> under your control for <b><color=#703565>1 round per caster level</color></b>.",
+    "zhCN": "此<b><color=#703565>法术</color></b>为你灌注负向能量，使你能够在法术持续时间内通过成功的近战<b><color=#703565>接触攻击</color></b>麻痹一个类人活物。被<b><color=#703565>麻痹</color></b>的目标会散发出腐肉的恶臭，导致10英尺半径范围内的所有活物（除你以外）陷入<b><color=#703565>恶心</color></b>状态（<b><color=#703565>强韧</color></b>豁免免除效果）。法术<b><color=#703565>中和毒素</color></b>可以为陷入恶心状态的生物移除该效果，免疫毒素的生物则不受恶臭影响，此效果属于<b><color=#703565>毒素效应</color></b>。若目标活物在食尸鬼之触的持续时间内被杀死，则其尸体会复活为一具<b><color=#703565>食尸鬼</color></b>为你战斗，持续时间为<b><color=#703565>每施法者等级1轮</color></b>。"
+  },
+
+ {
+    "Key": "GhoulTouchBuff.Description",
+    "enGB": "The creature becomes <b><color=#703565>paralyzed</color></b> and exudes a carrion stench that causes all living creatures within a 10-foot radius (except the caster of this <b><color=#703565>spell</color></b>) to become <b><color=#703565>sickened</color></b> (<b><color=#703565>Fortitude</color></b> negates). A <b><color=#703565>neutralize poison</color></b> spell removes this effect from a sickened creature, and creatures immune to poison are unaffected by the stench; this is a <b><color=#703565>poison effect</color></b>. If the living target is slain while ghoul touch remains in effect, its corpse rises as a <b><color=#703565>ghoul</color></b> under your control for <b><color=#703565>1 round per caster level</color></b>.",
+    "zhCN": "该生物陷入<b><color=#703565>麻痹</color></b>状态，并散发出腐肉的恶臭，导致10英尺扩散半径内所有活物（此<b><color=#703565>法术</color></b>的施法者除外）陷入<b><color=#703565>恶心</color></b>状态（<b><color=#703565>强韧</color></b>免除效果）。法术<b><color=#703565>中和毒素</color></b>可移除陷入恶心的生物身上的此效果，免疫毒素的生物不受恶臭影响，此为<b><color=#703565>毒素效应</color></b>。若目标活物在食尸鬼之触的持续时间内被杀死，则其尸体会复活为一具<b><color=#703565>食尸鬼</color></b>为你战斗，持续时间为<b><color=#703565>每施法者等级1轮</color></b>。"
+  },
+
+  {
+    "Key": "PoxPustules.Description",
+    "enGB": "You inflict a painful, itching rash on the target creature. The target becomes <b><color=#703565>sickened</color></b> and, on a <b><color=#703565>failed saving throw</color></b>, takes a <b><color=#703565>Dexterity penalty</color></b> equal to <b><color=#703565>4</color></b> plus <b><color=#703565>1</color></b> for every <b><color=#703565>2 caster levels</color></b> (this penalty cannot reduce Dexterity below 0); on a <b><color=#703565>successful saving throw</color></b>, the target takes only half this penalty.",
+    "zhCN": "你使目标生物身上出现奇痒难耐的皮疹。目标陷入<b><color=#703565>恶心</color></b>状态，并在<b><color=#703565>豁免失败</color></b>时其<b><color=#703565>敏捷属性</color></b>承受<b><color=#703565>4点</color></b>加上每<b><color=#703565>2个施法者等级</color></b><b><color=#703565>1点</color></b>的<b><color=#703565>减值</color></b>（该减值无法将敏捷属性降至0点以下）；若<b><color=#703565>豁免成功</color></b>，则仅承受上述减值的一半。"
   }
 ]

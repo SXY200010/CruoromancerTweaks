@@ -49,6 +49,11 @@ namespace CruoromancerTweaks.ModifiedContent.Spells.Necromancy
 
         private static readonly string ScareDescription = "Scare.Description";
         private static readonly string BoneshakerDescription = "Boneshaker.Description";
+        private static readonly string BoneFistsDescription = "BoneFists.Description";
+        private static readonly string PerniciousPoisonDescription = "PerniciousPoison.Description";
+        private static readonly string GhoulTouchDescription = "GhoulTouch.Description";
+        private static readonly string GhoulTouchBuffDescription = "GhoulTouchBuff.Description";
+        private static readonly string PoxPustulesDescription = "PoxPustules.Description";
         public static void Configure()
         {
             BlueprintAbility scare = BlueprintTool.Get<BlueprintAbility>("08cb5f4c3b2695e44971bf5c45205df0");
@@ -56,6 +61,9 @@ namespace CruoromancerTweaks.ModifiedContent.Spells.Necromancy
             BlueprintAbility boneshaker = BlueprintTool.Get<BlueprintAbility>("b7731c2b4fa1c9844a092329177be4c3");
             BlueprintAbility boneFists = BlueprintTool.Get<BlueprintAbility>("0da2046b4517427bb9b2e304ea6342bf");
             BlueprintAbility perniciousPoison = BlueprintTool.Get<BlueprintAbility>("dee3074b2fbfb064b80b973f9b56319e");
+            BlueprintAbility ghoulTouchCast = BlueprintTool.Get<BlueprintAbility>("a2b05555c704458aaadc34be52a63633");
+            BlueprintAbility ghoulTouchAbility = BlueprintTool.Get<BlueprintAbility>("cea2f6ead41c449191e1acc4ca488bd0");
+            BlueprintAbility poxPustules = BlueprintTool.Get<BlueprintAbility>("bc153808ef4884a4594bc9bec2299b69");
 
             BlueprintBuff shaken = BlueprintTool.Get<BlueprintBuff>("25ec6cb6ab1845c48a95f9c20b034220");
             BlueprintBuff commandUndeadBuff = BlueprintTool.Get<BlueprintBuff>("7cd727ddd4cc4be498720e45f0c1f6f4");
@@ -167,6 +175,7 @@ namespace CruoromancerTweaks.ModifiedContent.Spells.Necromancy
             rankConfig1.m_Max = 10;
 
             BlueprintBuff boneFistsUndeadBuff = BuffConfigurator.New("BoneFistsUndeadBuff", BoneFistsUndeadBuffGuid)
+                .SetDescription(BoneFistsDescription)
                 .SetFlags(BlueprintBuff.Flags.HiddenInUi)
                 .AddContextStatBonus(
                     stat: Kingmaker.EntitySystem.Stats.StatType.AC,
@@ -198,6 +207,7 @@ namespace CruoromancerTweaks.ModifiedContent.Spells.Necromancy
                 .Configure();
 
             AbilityConfigurator.For(boneFists)
+                .SetDescription(BoneFistsDescription)
                 .EditComponent<AbilityEffectRunAction>(c =>
                 {
                     var list = c.Actions.Actions.ToList();
@@ -250,10 +260,12 @@ namespace CruoromancerTweaks.ModifiedContent.Spells.Necromancy
                 .Configure();
 
             AbilityConfigurator.For(perniciousPoison)
+                .SetDescription(PoxPustulesDescription)
                 .SetRange(AbilityRange.Medium)
                 .Configure();
 
             BuffConfigurator.For(perniciousPoisonbuff)
+                .SetDescription(PoxPustulesDescription)
                 .AddContextStatBonus(
                     stat: StatType.SaveFortitude,
                     descriptor: ModifierDescriptor.Penalty,
@@ -282,6 +294,7 @@ namespace CruoromancerTweaks.ModifiedContent.Spells.Necromancy
                 .Configure();
 
             BuffConfigurator.For(poxPustulesBuff)
+                .SetDescription(PoxPustulesDescription)
                 .RemoveComponents(c => c is AddStatBonus)
                 .AddContextRankConfig(
                     ContextRankConfigs
@@ -365,9 +378,14 @@ namespace CruoromancerTweaks.ModifiedContent.Spells.Necromancy
                 )
                 .Configure();
 
+            AbilityConfigurator.For(poxPustules)
+                .SetDescription(PoxPustulesDescription)
+                .Configure();
+
             BuffConfigurator.For(ghoulTouchBuff)
+              .SetDescription(GhoulTouchBuffDescription)
               .AddContextRankConfig(
-                  ContextRankConfigs.CasterLevel()
+                  ContextRankConfigs.CharacterLevel()
               )
               .AddComponent<AddIncomingDamageTrigger>(c =>
               {
@@ -448,6 +466,13 @@ namespace CruoromancerTweaks.ModifiedContent.Spells.Necromancy
               })
               .Configure();
 
+            AbilityConfigurator.For(ghoulTouchAbility)
+                .SetDescription(GhoulTouchDescription)
+                .Configure();
+
+            AbilityConfigurator.For(ghoulTouchCast)
+                .SetDescription(GhoulTouchDescription)
+                .Configure();
         }
     }
 }
