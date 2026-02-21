@@ -278,5 +278,47 @@
     "Key": "PoxPustules.Description",
     "enGB": "You inflict a painful, itching rash on the target creature. The target becomes <b><color=#703565>sickened</color></b> and, on a <b><color=#703565>failed saving throw</color></b>, takes a <b><color=#703565>Dexterity penalty</color></b> equal to <b><color=#703565>4</color></b> plus <b><color=#703565>1</color></b> for every <b><color=#703565>2 caster levels</color></b> (this penalty cannot reduce Dexterity below 0); on a <b><color=#703565>successful saving throw</color></b>, the target takes only half this penalty.",
     "zhCN": "你使目标生物身上出现奇痒难耐的皮疹。目标陷入<b><color=#703565>恶心</color></b>状态，并在<b><color=#703565>豁免失败</color></b>时其<b><color=#703565>敏捷属性</color></b>承受<b><color=#703565>4点</color></b>加上每<b><color=#703565>2个施法者等级</color></b><b><color=#703565>1点</color></b>的<b><color=#703565>减值</color></b>（该减值无法将敏捷属性降至0点以下）；若<b><color=#703565>豁免成功</color></b>，则仅承受上述减值的一半。"
+  },
+
+  {
+    "Key": "BestowCurse.Description",
+    "enGB": "You place a curse on the target. Choose one of the following curses: Curse of Feeble Body — the target takes a <b><color=#703565>-6 penalty</color></b> to <b><color=#703565>Constitution</color></b>; <br>Curse of Weakness — the target takes a <b><color=#703565>-6 penalty</color></b> to <b><color=#703565>Strength</color></b> and <b><color=#703565>Dexterity</color></b>; <br>Curse of Idiocy — the target takes a <b><color=#703565>-6 penalty</color></b> to <b><color=#703565>Intelligence</color></b>, <b><color=#703565>Wisdom</color></b>, and <b><color=#703565>Charisma</color></b>;<br> Curse of Deterioration — the target takes a <b><color=#703565>-4 penalty</color></b> on <b><color=#703565>attack rolls</color></b>, <b><color=#703565>saves</color></b>, <b><color=#703565>ability checks</color></b>, and <b><color=#703565>skill checks</color></b>;<br> Curse of Terror — each round the target has only a <b><color=#703565>50% chance</color></b> to act normally, otherwise it remains in place under a <b><color=#703565>fear effect</color></b>.",
+    "zhCN": "你对目标施以诅咒，从下列诅咒中选择一项：弱体诅咒——受术目标的<b><color=#703565>体质</color></b>值受到<b><color=#703565>-6减值</color></b>；<br>无能诅咒——受术目标的<b><color=#703565>力量</color></b>与<b><color=#703565>敏捷</color></b>值受到<b><color=#703565>-6减值</color></b>；<br>愚痴诅咒——受术目标的<b><color=#703565>智力</color></b>、<b><color=#703565>感知</color></b>与<b><color=#703565>魅力</color></b>值受到<b><color=#703565>-6减值</color></b>；<br>衰颓诅咒——受术目标在<b><color=#703565>攻击检定</color></b>、<b><color=#703565>豁免检定</color></b>、<b><color=#703565>属性检定</color></b>与<b><color=#703565>技能检定</color></b>时受到<b><color=#703565>-4减值</color></b>；<br>恐怖诅咒——每回合目标只有<b><color=#703565>50%概率</color></b>可以正常行动，否则将在原地承受<b><color=#703565>恐惧效果</color></b>。"
+  },
+
+  {
+    "Key": "HorrifyingCurse.Name",
+    "enGB": "Curse of Terror",
+    "zhCN": "恐怖诅咒"
+  },
+
+  {
+    "Key": "HorrifyingCurse.Description",
+    "enGB": "Each round the target has only a <b><color=#703565>50% chance</color></b> to act normally, otherwise it remains in place under a <b><color=#703565>fear effect</color></b>.",
+    "zhCN": "目标每回合目标只有<b><color=#703565>50%概率</color></b>可以正常行动，否则将在原地承受<b><color=#703565>恐惧效果</color></b>。"
+  },
+
+  {
+    "Key": "Contagion.Description",
+    "enGB": "The subject contracts one of the following diseases: blinding sickness, bubonic plague, cackle fever, mindfire, or shakes. The disease takes effect immediately (the onset period does not apply). If the target <b><color=#703565>fails its saving throw</color></b>, it must attempt a <b><color=#703565>Fortitude save</color></b> at the start of each subsequent round to resist the disease’s worsening; on a failure, it takes the corresponding <b><color=#703565>ability damage</color></b> again each round, and this worsening lasts for <b><color=#703565>1 round per caster level</color></b>. <br>Blinding Sickness effect: <b><color=#703565>1d4</color></b> <b><color=#703565>Strength damage</color></b>, and the target must make an additional <b><color=#703565>Fortitude save</color></b> or become permanently <b><color=#703565>blinded</color></b>;<br> Bubonic Plague effect: <b><color=#703565>1d4</color></b> <b><color=#703565>Constitution damage</color></b> and the target becomes <b><color=#703565>fatigued</color></b>;<br> Cackle Fever effect: <b><color=#703565>1d6</color></b> <b><color=#703565>Wisdom damage</color></b>; <br>Mindfire effect: <b><color=#703565>1d4</color></b> <b><color=#703565>Intelligence damage</color></b>; <br>Shakes effect: <b><color=#703565>1d8</color></b> <b><color=#703565>Dexterity damage</color></b>.",
+    "zhCN": "目标感染以下疾病之一：目盲症、黑死病、失心疯、脑热症或寒颤症。疾病立刻生效（无潜伏期）。若目标<b><color=#703565>豁免失败</color></b>，则在之后每个回合开始时必须再次进行一次<b><color=#703565>强韧豁免</color></b>以抵御疫病恶化，否则每轮都会再次承受一次相应的<b><color=#703565>属性伤害</color></b>，该恶化效果持续<b><color=#703565>每施法者等级1轮</color></b>。<br>目盲症效果：<b><color=#703565>1d4</color></b>点<b><color=#703565>力量</color></b><b><color=#703565>伤害</color></b>，目标必须进行额外的<b><color=#703565>强韧豁免</color></b>，若失败则永久<b><color=#703565>目盲</color></b>；<br>黑死病效果：<b><color=#703565>1d4</color></b>点<b><color=#703565>体质</color></b>伤害并陷入<b><color=#703565>疲劳</color></b>状态；<br>失心疯效果：<b><color=#703565>1d6</color></b>点<b><color=#703565>感知</color></b>伤害；<br>脑热症效果：<b><color=#703565>1d4</color></b>点<b><color=#703565>智力</color></b>伤害；<br>寒颤症效果：<b><color=#703565>1d8</color></b>点<b><color=#703565>敏捷</color></b>伤害。"
+  },
+
+  {
+    "Key": "Boneshatter.Description",
+    "enGB": "The target’s bones (or exoskeleton) splinter, dealing <b><color=#703565>1d6 damage per caster level</color></b> (maximum <b><color=#703565>15d6</color></b>), but if the target is <b><color=#703565>undead</color></b> the damage becomes <b><color=#703565>1d8 per caster level</color></b> (maximum <b><color=#703565>15d8</color></b>); the target is also <b><color=#703565>exhausted</color></b> for <b><color=#703565>1 minute per caster level</color></b> from the pain and exertion of the transformation. On a successful <b><color=#703565>Fortitude save</color></b>, the damage is halved and the target is <b><color=#703565>fatigued</color></b> instead of exhausted.",
+    "zhCN": "目标的骨骼（或外骨骼）碎裂飞散，造成每<b><color=#703565>施法者等级</color></b><b><color=#703565>1d6</color></b>点<b><color=#703565>伤害</color></b>（最高<b><color=#703565>15d6</color></b>点），若目标为<b><color=#703565>不死生物</color></b>则伤害改为每施法者等级<b><color=#703565>1d8</color></b>（最高<b><color=#703565>15d8</color></b>点），同时使目标因痛苦和疲累陷入<b><color=#703565>力竭</color></b>状态，持续<b><color=#703565>每施法者等级1分钟</color></b>。若目标<b><color=#703565>强韧豁免</color></b>成功，则伤害减半，并陷入<b><color=#703565>疲劳</color></b>而非力竭状态。"
+  },
+
+  {
+    "Key": "PoisonCast.Description",
+    "enGB": "Calling upon the venomous powers of natural predators, you infect the subject with a terrible poison by making a successful melee <b><color=#703565>touch attack</color></b>. This poison deals <b><color=#703565>1d4</color></b> <b><color=#703565>Constitution damage</color></b> per round for 6 rounds. Poisoned creatures may attempt a <b><color=#703565>Fortitude save</color></b> each round to negate the <b><color=#703565>damage</color></b> and end the affliction.",
+    "zhCN": "你唤起大自然中捕食者的毒性，成功进行近战<b><color=#703565>接触攻击</color></b>检定后便可使目标身中剧毒。该毒素每<b><color=#703565>轮</color></b>造成<b><color=#703565>1d4</color></b>点<b><color=#703565>体质</color></b><b><color=#703565>伤害</color></b>，持续6轮。中毒的生物每轮可尝试<b><color=#703565>强韧豁免检定</color></b>来免受<b><color=#703565>伤害</color></b>并结束该负向效果。"
+  },
+
+  {
+    "Key": "Poison.Description",
+    "enGB": "Injury; <b><color=#703565>Save</color></b>: Fortitude <br>Frequency: 1/ <b><color=#703565>round</color></b> for 6 rounds <br>Effect: <b><color=#703565>1d4</color></b> <b><color=#703565>Constitution damage</color></b> <br>Cure: 1 successful save",
+    "zhCN": "受创；<b><color=#703565>豁免</color></b>：强韧<br>频率：1次/<b><color=#703565>轮</color></b>，持续6轮 <br>效果：<b><color=#703565>1d4</color></b>点<b><color=#703565>体质</color></b><b><color=#703565>伤害</color></b> <br>痊愈：1次豁免成功"
   }
 ]

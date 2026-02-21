@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.Root;
 using BlueprintCore.Utils;
 using CruoromancerTweaks.Feats;
+using CruoromancerTweaks.ModifiedContent;
 using CruoromancerTweaks.ModifiedContent.BugFix;
 using CruoromancerTweaks.ModifiedContent.Classes;
 using CruoromancerTweaks.ModifiedContent.Feats;
@@ -73,6 +74,8 @@ namespace CruoromancerTweaks
                     GebianNecromancer.Configure();
                     NecromancyLevel1.Configure();
                     NecromancyLevel2.Configure();
+                    ContagionAggravationBuffs.Configure();
+                    NecromancyLevel4.Configure();
                 }
                 catch (Exception e)
                 {
