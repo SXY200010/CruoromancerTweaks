@@ -76,6 +76,8 @@ namespace CruoromancerTweaks
                     NecromancyLevel2.Configure();
                     ContagionAggravationBuffs.Configure();
                     NecromancyLevel4.Configure();
+                    NecromancyLevel5.Configure();
+                    NecromancyLevel6.Configure();
                 }
                 catch (Exception e)
                 {
