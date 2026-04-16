@@ -42,14 +42,16 @@ namespace CruoromancerTweaks.ModifiedContent.Spells.Conjuration
 {
     internal class ConjurationLv7
     {
+        private static readonly string HealDamageDescription = "HealDamage.Description";
         public static void Configure()
         {
             BlueprintAbility HealDamage = BlueprintTool.Get<BlueprintAbility>("6ecd2657cb645274cbc167d667ac521d");
              AbilityConfigurator.For(HealDamage)
-                 .EditComponent<ContextRankConfig>(c =>
-                 {
-                     c.m_Max = 200;
-                 })
+                .SetDescription(HealDamageDescription)
+                .EditComponent<ContextRankConfig>(c =>
+                {
+                    c.m_Max = 200;
+                })
                 .Configure();
         }
     }

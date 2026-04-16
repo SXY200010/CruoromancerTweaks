@@ -80,6 +80,13 @@ namespace CruoromancerTweaks
                     NecromancyLevel5.Configure();
                     NecromancyLevel6.Configure();
                     ConjurationLv7.Configure();
+                    MagusBuff.Configure();
+                    OracleRevelation.Configure();
+                    DirgeBard.Configure();
+                    Warpriest.Configure();
+                    Alchemist.Configure();
+                    BloodSeeker.Configure();
+                    Cleric.Configure();
                 }
                 catch (Exception e)
                 {

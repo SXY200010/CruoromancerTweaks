@@ -48,6 +48,12 @@ namespace CruoromancerTweaks.ModifiedContent.Spells.Necromancy
 {
     internal class NecromancyLevel6
     {
+        private static readonly string UndeathToDeathName = "UndeathToDeath.Name";
+
+        private static readonly string SiphonLifeDescription = "SiphonLife.Description";
+        private static readonly string CircleOfDeathDescription = "CircleOfDeath.Description";
+        private static readonly string UndeathToDeathDescription = "UndeathToDeath.Description";
+        private static readonly string HarmDamageDescription = "HarmDamage.Description";
         public static void Configure()
         {
             BlueprintAbility SiphonLife = BlueprintTool.Get<BlueprintAbility>("7bd52a86498c7854ebe99bc3cfb85bfe");
@@ -55,6 +61,7 @@ namespace CruoromancerTweaks.ModifiedContent.Spells.Necromancy
             BlueprintBuff Fatigued = BlueprintTool.Get<BlueprintBuff>("e6f2fc5d73d88064583cb828801212f4");
 
             AbilityConfigurator.For(SiphonLife)
+                .SetDescription(SiphonLifeDescription)
                 .EditComponent<AbilityEffectRunAction>(c =>
                 {
                     foreach (var rootAction in c.Actions.Actions)
@@ -100,129 +107,133 @@ namespace CruoromancerTweaks.ModifiedContent.Spells.Necromancy
 
             BlueprintAbility CircleOfDeath = BlueprintTool.Get<BlueprintAbility>("a89dcbbab8f40e44e920cc60636097cf");
             AbilityConfigurator.For(CircleOfDeath)
-            .EditComponents<ContextCalculateSharedValue>(
-                c =>
+                .SetDescription(CircleOfDeathDescription)
+                .EditComponents<ContextCalculateSharedValue>(
+                    c =>
+                    {
+                        c.Value = new ContextDiceValue
+                        {
+                            DiceType = DiceType.D6,
+                            DiceCountValue = new ContextValue
+                            {
+                                ValueType = ContextValueType.Rank,
+                                ValueRank = AbilityRankType.Default,
+                            },
+                            BonusValue = 0
+                        };
+                    },
+                    c => c.ValueType != AbilitySharedValue.Heal
+                )
+                .AddComponent<ContextRankConfig>(c =>
                 {
+                    c.m_Type = AbilityRankType.DamageBonus;
+                    c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
+                    c.m_Progression = ContextRankProgression.AsIs;
+                    c.m_Max = 10;
+                })
+                .AddComponent<ContextCalculateSharedValue>(c =>
+                {
+                    c.ValueType = AbilitySharedValue.Heal; 
                     c.Value = new ContextDiceValue
                     {
-                        DiceType = DiceType.D6,
-                        DiceCountValue = new ContextValue
+                        DiceType = DiceType.Zero,
+                        DiceCountValue = 0,
+                        BonusValue = new ContextValue
                         {
                             ValueType = ContextValueType.Rank,
-                            ValueRank = AbilityRankType.Default,
-                        },
-                        BonusValue = 0
+                            ValueRank = AbilityRankType.DamageBonus,
+                            Value = 9
+                        }
                     };
-                },
-                c => c.ValueType != AbilitySharedValue.Heal
-            )
-            .AddComponent<ContextRankConfig>(c =>
-            {
-                c.m_Type = AbilityRankType.DamageBonus;
-                c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
-                c.m_Progression = ContextRankProgression.AsIs;
-                c.m_Max = 10;
-            })
-            .AddComponent<ContextCalculateSharedValue>(c =>
-            {
-                c.ValueType = AbilitySharedValue.Heal; 
-                c.Value = new ContextDiceValue
+                })
+                .EditComponent<AbilityEffectRunAction>(c =>
                 {
-                    DiceType = DiceType.Zero,
-                    DiceCountValue = 0,
-                    BonusValue = new ContextValue
+                    foreach (var rootAction in c.Actions.Actions)
                     {
-                        ValueType = ContextValueType.Rank,
-                        ValueRank = AbilityRankType.DamageBonus,
-                        Value = 9
-                    }
-                };
-            })
-            .EditComponent<AbilityEffectRunAction>(c =>
-            {
-                foreach (var rootAction in c.Actions.Actions)
-                {
-                    ActionTreeUtils.Walk(rootAction, a =>
-                    {
-                        if (a is Conditional cond)
+                        ActionTreeUtils.Walk(rootAction, a =>
                         {
-                            foreach (var condition in cond.ConditionsChecker.Conditions)
+                            if (a is Conditional cond)
                             {
-                                if (condition is ContextConditionHitDice hpCond && hpCond.HitDice == 9)
+                                foreach (var condition in cond.ConditionsChecker.Conditions)
                                 {
-                                    hpCond.SharedValue = AbilitySharedValue.Heal;
+                                    if (condition is ContextConditionHitDice hpCond && hpCond.HitDice == 9)
+                                    {
+                                        hpCond.SharedValue = AbilitySharedValue.Heal;
+                                    }
                                 }
                             }
-                        }
-                    });
-                }
-            })
-            .Configure();
+                        });
+                    }
+                })
+                .Configure();
 
             BlueprintAbility UndeathToDeath = BlueprintTool.Get<BlueprintAbility>("a9a52760290591844a96d0109e30e04d");
             AbilityConfigurator.For(UndeathToDeath)
-            .EditComponents<ContextCalculateSharedValue>(
-                c =>
+                .SetDescription(UndeathToDeathDescription)
+                .SetDisplayName(UndeathToDeathName)
+                .EditComponents<ContextCalculateSharedValue>(
+                    c =>
+                    {
+                        c.Value = new ContextDiceValue
+                        {
+                            DiceType = DiceType.D6,
+                            DiceCountValue = new ContextValue
+                            {
+                                ValueType = ContextValueType.Rank,
+                                ValueRank = AbilityRankType.Default,
+                            },
+                            BonusValue = 0
+                        };
+                    },
+                    c => c.ValueType != AbilitySharedValue.Heal
+                )
+                .AddComponent<ContextRankConfig>(c =>
                 {
+                    c.m_Type = AbilityRankType.DamageBonus;
+                    c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
+                    c.m_Progression = ContextRankProgression.AsIs;
+                    c.m_Max = 10;
+                })
+                .AddComponent<ContextCalculateSharedValue>(c =>
+                {
+                    c.ValueType = AbilitySharedValue.Heal;
                     c.Value = new ContextDiceValue
                     {
-                        DiceType = DiceType.D6,
-                        DiceCountValue = new ContextValue
+                        DiceType = DiceType.Zero,
+                        DiceCountValue = 0,
+                        BonusValue = new ContextValue
                         {
                             ValueType = ContextValueType.Rank,
-                            ValueRank = AbilityRankType.Default,
-                        },
-                        BonusValue = 0
+                            ValueRank = AbilityRankType.DamageBonus,
+                            Value = 9
+                        }
                     };
-                },
-                c => c.ValueType != AbilitySharedValue.Heal
-            )
-            .AddComponent<ContextRankConfig>(c =>
-            {
-                c.m_Type = AbilityRankType.DamageBonus;
-                c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
-                c.m_Progression = ContextRankProgression.AsIs;
-                c.m_Max = 10;
-            })
-            .AddComponent<ContextCalculateSharedValue>(c =>
-            {
-                c.ValueType = AbilitySharedValue.Heal;
-                c.Value = new ContextDiceValue
+                })
+                .EditComponent<AbilityEffectRunAction>(c =>
                 {
-                    DiceType = DiceType.Zero,
-                    DiceCountValue = 0,
-                    BonusValue = new ContextValue
+                    foreach (var rootAction in c.Actions.Actions)
                     {
-                        ValueType = ContextValueType.Rank,
-                        ValueRank = AbilityRankType.DamageBonus,
-                        Value = 9
-                    }
-                };
-            })
-            .EditComponent<AbilityEffectRunAction>(c =>
-            {
-                foreach (var rootAction in c.Actions.Actions)
-                {
-                    ActionTreeUtils.Walk(rootAction, a =>
-                    {
-                        if (a is Conditional cond)
+                        ActionTreeUtils.Walk(rootAction, a =>
                         {
-                            foreach (var condition in cond.ConditionsChecker.Conditions)
+                            if (a is Conditional cond)
                             {
-                                if (condition is ContextConditionHitDice hpCond && hpCond.HitDice == 9)
+                                foreach (var condition in cond.ConditionsChecker.Conditions)
                                 {
-                                    hpCond.SharedValue = AbilitySharedValue.Heal;
+                                    if (condition is ContextConditionHitDice hpCond && hpCond.HitDice == 9)
+                                    {
+                                        hpCond.SharedValue = AbilitySharedValue.Heal;
+                                    }
                                 }
                             }
-                        }
-                    });
-                }
-            })
-            .Configure();
+                        });
+                    }
+                })
+                .Configure();
 
 
             BlueprintAbility HarmDamage = BlueprintTool.Get<BlueprintAbility>("3da67f8b941308348b7101e7ef418f52");
             AbilityConfigurator.For(HarmDamage)
+                .SetDescription(HarmDamageDescription)
                 .EditComponent<ContextRankConfig>(c =>
                 {
                     c.m_Max = 200;

@@ -49,6 +49,7 @@ namespace CruoromancerTweaks.ModifiedContent.Spells.Necromancy
 {
     internal class NecromancyLevel5
     {
+        private static readonly string BoneExplosionDescription = "BoneExplosion.Description";
         public static void Configure()
         {
             BlueprintAbility BoneExplosion = BlueprintTool.Get<BlueprintAbility>("cc51242ff01192b49a2e25adf096e2d0");
@@ -58,6 +59,7 @@ namespace CruoromancerTweaks.ModifiedContent.Spells.Necromancy
             BlueprintBuff Exhausted = BlueprintTool.Get<BlueprintBuff>("46d1b9cc3d0fd36469a471b047d773a2");
 
             AbilityConfigurator.For(BoneExplosion)
+                .SetDescription(BoneExplosionDescription)
                 .EditComponents<ContextRankConfig>(
                     c =>
                     {
