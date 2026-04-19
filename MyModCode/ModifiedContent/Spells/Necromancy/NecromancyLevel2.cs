@@ -23,6 +23,7 @@ using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
 using Kingmaker.UnitLogic.Abilities.Components.CasterCheckers;
+using Kingmaker.UnitLogic.Abilities.Components.TargetCheckers;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Buffs.Actions;
@@ -54,6 +55,7 @@ namespace CruoromancerTweaks.ModifiedContent.Spells.Necromancy
         private static readonly string GhoulTouchDescription = "GhoulTouch.Description";
         private static readonly string GhoulTouchBuffDescription = "GhoulTouchBuff.Description";
         private static readonly string PoxPustulesDescription = "PoxPustules.Description";
+        private static readonly string commandUndeadDuration = "commandUndead.Duration";
         public static void Configure()
         {
             BlueprintAbility scare = BlueprintTool.Get<BlueprintAbility>("08cb5f4c3b2695e44971bf5c45205df0");
@@ -72,6 +74,7 @@ namespace CruoromancerTweaks.ModifiedContent.Spells.Necromancy
             BlueprintBuff poxPustulesBuff = BlueprintTool.Get<BlueprintBuff>("a8a28fd665c3d49428463cfee78b79d1");
             BlueprintBuff ghoulTouchBuff = BlueprintTool.Get<BlueprintBuff>("bdc12558a89d47a1b4f859b2664bcef3");
             BlueprintBuff summonedCreatureSpawnMonsterIVVI = BlueprintTool.Get<BlueprintBuff>("50d51854cf6a3434d96a87d050e1d09a");
+            BlueprintBuff RepurposeBuffUndead = BlueprintTool.Get<BlueprintBuff>("57785c3bf386461ea3d623d627314afa");
 
             BlueprintFeature incorporeal = BlueprintTool.Get<BlueprintFeature>("c4a7f98d743bc784c9d4cf2105852c39");
             BlueprintFeature constructType = BlueprintTool.Get<BlueprintFeature>("fd389783027d63343b4a5634bd81645f");
@@ -139,6 +142,18 @@ namespace CruoromancerTweaks.ModifiedContent.Spells.Necromancy
                         });
                     }
                 })
+                .SetIsFullRoundAction(false)
+                .SetLocalizedDuration(commandUndeadDuration)
+                .Configure();
+
+            BuffConfigurator.For(commandUndeadIntelligentBuff)
+                .EditComponent<AddFactContextActions>(c =>
+                {
+                    c.NewRound = new ActionList
+                    {
+                        Actions = Array.Empty<GameAction>()
+                    };
+                })
                 .Configure();
 
             AbilityConfigurator.For(boneshaker)
@@ -158,16 +173,23 @@ namespace CruoromancerTweaks.ModifiedContent.Spells.Necromancy
                         {
                             new ContextConditionHasFact
                             {
-                                m_Fact = incorporeal.ToReference<BlueprintUnitFactReference>(),
-                                Not = true
+                                m_Fact = incorporeal.ToReference<BlueprintUnitFactReference>()
                             },
                             new ContextConditionHasFact
                             {
-                                m_Fact = constructType.ToReference<BlueprintUnitFactReference>(),
-                                Not = true
+                                m_Fact = constructType.ToReference<BlueprintUnitFactReference>()
                             }
                         }
                     };
+                })
+                .EditComponent<AbilityTargetHasFact>(c =>
+                {
+                    c.m_CheckedFacts = new BlueprintUnitFactReference[]
+                    {
+                        incorporeal.ToReference<BlueprintUnitFactReference>(),
+                        constructType.ToReference<BlueprintUnitFactReference>()
+                    };
+                    c.Inverted = true; 
                 })
                 .Configure();
 
@@ -382,6 +404,12 @@ namespace CruoromancerTweaks.ModifiedContent.Spells.Necromancy
                 .SetDescription(PoxPustulesDescription)
                 .Configure();
 
+            BlueprintBuff GhoulTouchFXBuff =  BuffConfigurator.New("GhoulTouchFXBuff", "F2C890851913463E8128B5EBA5B46C99")
+              .SetFlags(BlueprintBuff.Flags.HiddenInUi)
+              .SetFxOnStart(RepurposeBuffUndead.FxOnStart)
+              .SetFxOnRemove(RepurposeBuffUndead.FxOnRemove)
+              .Configure();
+
             BuffConfigurator.For(ghoulTouchBuff)
               .SetDescription(GhoulTouchBuffDescription)
               .AddContextRankConfig(
@@ -445,18 +473,28 @@ namespace CruoromancerTweaks.ModifiedContent.Spells.Necromancy
                                                   ValueRank = AbilityRankType.Default
                                               }
                                           },
-                                          AfterSpawn = new ActionList
-                                          {
-                                              Actions = new GameAction[]
-                                              {
-                                                  new ContextActionApplyBuff
-                                                  {
-                                                      m_Buff = summonedCreatureSpawnMonsterIVVI.ToReference<BlueprintBuffReference>()
-                                                  }
-                                              } 
-                                          } 
+                                            AfterSpawn = new ActionList
+                                            {
+                                                Actions = new GameAction[]
+                                                {
+                                                    new ContextActionApplyBuff
+                                                    {
+                                                        m_Buff = summonedCreatureSpawnMonsterIVVI.ToReference<BlueprintBuffReference>(),
+                                                        Permanent = true
+                                                    },
+                                                    new ContextActionApplyBuff
+                                                    {
+                                                        m_Buff = GhoulTouchFXBuff.ToReference<BlueprintBuffReference>(),
+                                                        Permanent = true
+                                                    }
+                                                }
+                                            }
                                       }
                                   }
+                              },
+                              IfFalse = new ActionList
+                              {
+                                  Actions = Array.Empty<GameAction>() 
                               }
                           }
                       }

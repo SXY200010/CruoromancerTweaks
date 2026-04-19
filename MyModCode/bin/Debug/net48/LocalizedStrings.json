@@ -463,5 +463,17 @@
   "Key": "HealDamage.Description",
   "enGB": "Heal enables you to channel positive energy into a creature to wipe away injury and afflictions. It immediately ends any and all of the following adverse conditions affecting the target: ability damage, blinded, confused, dazed, dazzled, diseased, exhausted, fatigued, nauseated, poisoned, sickened, and stunned. It also cures 10 hit points of damage per caster level, to a maximum of 200 points at 20th level. Heal does not remove negative levels or restore permanently drained ability score points. If used against an undead creature, heal acts like harm.",
   "zhCN": "医疗术可以让你向生物引导正向能量，驱除伤害和负向效果。它可立即结束以下所有影响目标的不利状态：属性伤害、目盲、困惑、眩晕、目眩、患病、力竭、疲劳、反胃、中毒、恶心及震慑。它还能治疗伤害，恢复每施法者等级10点生命值（20级时达到最多200点）。医疗术不会移除负向等级，也无法恢复永久的属性流失。如果对不死生物使用，医疗术改为产生类似重伤术的效果。"
+  },
+
+  {
+    "Key":"commandUndead.Duration",
+    "enGB": "1 minute/level",
+    "zhCN":"1分钟/级"
+  },
+
+  {
+  "Key": "WavesOfFatigue.Description",
+  "enGB": "Waves of negative energy render all living creatures in the spell's area fatigued. Creatures that are already fatigued become exhausted instead.",
+  "zhCN": "潮水般的负向能量使法术范围内的所有活物陷入疲劳状态。对于已经处于疲劳状态的生物，则改为使其陷入力竭状态。"
   }
 ]
